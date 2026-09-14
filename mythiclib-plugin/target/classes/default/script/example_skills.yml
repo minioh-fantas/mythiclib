@@ -1,0 +1,31 @@
+##################################
+# Does nothing
+##################################
+none:
+  public: true
+empty_skill:
+  public: true
+
+##################################
+# Some magical staff attack
+##################################
+
+# The script that you cast to peform the staff attack
+staff_attack:
+  public: true
+  mechanics:
+    - 'raytrace{hit_entity=staff_attack_hit_entity;tick=staff_attack_tick;size=1}'
+    - 'sound{sound=ENTITY_BLAZE_SHOOT;pitch=1;volume=1}'
+
+# The effect when the attack hits an entity
+staff_attack_hit_entity:
+  conditions:
+    - 'can_target'
+  mechanics:
+    - 'damage{amount=10;ignore_immunity=true}'
+    - 'particle{particle=LAVA;amount=32}'
+
+# The tick effect while the raytrace is ongoing
+staff_attack_tick:
+  mechanics:
+    - 'particle{particle=REDSTONE;amount=4;x=.5;y=.5;z=.5}'

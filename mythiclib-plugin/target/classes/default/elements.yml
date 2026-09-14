@@ -1,0 +1,76 @@
+FIRE:
+
+  # Public translation MMOCore and MMOItems will use
+  name: Fire
+
+  # An item associated to your element. Used in the MI item editor
+  icon: BLAZE_POWDER
+
+  # Some nice looking icon, used in damage indicators and MI item lore
+  lore-icon: '🔥'
+
+  # A color associated to your element. Used in damage indicators as well as MI item lore
+  color: '&c'
+
+  # What gets executed when a normal elemental is performed
+  regular-attack: 'mythiclib:fire_elemental_attack'
+
+  # What gets executed when a elemental critical strike is performed
+  # This one is optional. If not specified, no crits can occur
+  crit-strike: 'mythiclib:fire_critical_strike'
+
+ICE:
+  name: Ice
+  icon: SNOWBALL
+  lore-icon: '❄'
+  color: '&b'
+  regular-attack: 'mythiclib:ice_elemental_attack'
+  crit-strike: 'mythiclib:ice_critical_strike'
+
+EARTH:
+  name: Earth
+  icon: OAK_SAPLING
+  lore-icon: '₪'
+  color: '&2'
+  regular-attack: 'mythiclib:earth_elemental_attack'
+  crit-strike: 'mythiclib:earth_critical_strike'
+
+WIND:
+  name: Wind
+  icon: FEATHER
+  lore-icon: '🌊'
+  color: '&7'
+  regular-attack: 'mythiclib:wind_elemental_attack'
+  crit-strike: 'mythiclib:wind_critical_strike'
+
+THUNDER:
+  name: Thunder
+  icon: GUNPOWDER
+  lore-icon: '★'
+  color: '&e'
+  regular-attack: 'mythiclib:thunder_elemental_attack'
+  crit-strike: 'mythiclib:thunder_critical_strike'
+
+WATER:
+  name: Water
+  icon: LILY_PAD
+  lore-icon: '🌊'
+  color: '&3'
+  regular-attack: 'mythiclib:water_elemental_attack'
+  crit-strike: 'mythiclib:water_critical_strike'
+
+DARKNESS:
+  name: Darkness
+  icon: COAL
+  lore-icon: '☽'
+  color: '&8'
+  regular-attack: 'mythiclib:none' # No attack effect (skill 'none' does nothing)
+  # No crits possible
+
+LIGHTNESS:
+  name: Light
+  icon: GLOWSTONE_DUST
+  lore-icon: '☀'
+  color: '&f'
+  regular-attack: 'mythiclib:none' # No attack effect (skill 'none' does nothing)
+  # No crits possible

@@ -1,0 +1,26 @@
+name: MythicLib
+author: Indyuce
+main: io.lumine.mythic.lib.MythicLib
+api-version: 1.14
+version: 1.7.1-SNAPSHOT
+description: Hard dependency for the MMO plugins
+website: www.phoenixdevt.fr
+# AuraSkills must be enabled before initializing API class
+softdepend: [ WorldGuard,Residence,MythicMobs,PlaceholderAPI,Fabled,AureliumSkills,AuraSkills ]
+loadbefore: [ MMOProfiles, MMOCore ]
+commands:
+  mythiclib:
+    description: 'Main command for MythicLib'
+    permission: 'mythiclib.admin'
+    aliases: [ 'ml' ]
+permissions:
+  mythiclib.admin:
+    default: op
+  mythiclib.mythiclib.command.healthscale:
+    default: op
+  mythiclib.tempstat:
+    default: op
+  mythiclib.superworkbench:
+    default: op
+  mythiclib.megaworkbench:
+    default: op

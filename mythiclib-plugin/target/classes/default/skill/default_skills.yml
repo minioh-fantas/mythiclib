@@ -1,0 +1,5213 @@
+AMBERS:
+  name: Mana Ambers
+  lore:
+    - Dealing magic damage has &630% &7chance
+    - of dropping an amber on the ground.
+    - ''
+    - When picked up, ambers refund &9{percent}% &7of your missing mana.
+    - ''
+    - '&e{cooldown}s Cooldown'
+  icon: EMERALD
+  source: default:AMBERS
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 2.0
+        per-level: 1.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 3.0
+        per-level: -0.1
+        max: 3.0
+        min: 1.0
+      name: Cooldown
+      item: 0
+    percent:
+      player:
+        base: 10.0
+        per-level: 1.1
+        max: 20.0
+        min: 10.0
+      name: Percent
+      item: 0
+ARCANE_HAIL:
+  name: Arcane Hail
+  lore:
+    - Surprise your foes with this
+    - quick firing hail of magic
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: END_ROD
+  source: default:ARCANE_HAIL
+  # Change types of damage dealt
+  damage_types: [MAGIC,SKILL]
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: -0.1
+    mana:
+      player:
+        base: 2
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 1
+        per-level: -0.2
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 4.0
+    damage:
+      player:
+        base: 3
+        per-level: 1
+      name: Damage
+      item: 3.0
+    radius:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Radius
+      item: 3.0
+ARCANE_RIFT:
+  name: Arcane Rift
+  lore:
+    - Summon a magical rift
+    - to damage your enemy
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:ARCANE_RIFT
+  # Change types of damage dealt
+  damage_types: [MAGIC,SKILL]
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    cooldown:
+      player:
+        base: 6
+        per-level: -0.5
+      name: Cooldown
+      item: 10.0
+    mana:
+      player:
+        base: 4
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+      name: Stamina
+      item: 0.0
+    duration:
+      player:
+        base: 2
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 1.5
+    damage:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Damage
+      item: 5.0
+    amplifier:
+      player:
+        base: 2
+        per-level: 1
+      name: Amplifier
+      item: 2.0
+    speed:
+      player:
+        base: 2
+        per-level: 1
+      name: Speed
+      item: 1.0
+BACKSTAB:
+  name: Backstab
+  lore:
+    - Backstabs deal &c{extra}%&7 damage.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: FLINT
+  source: default:BACKSTAB
+  # Change types of damage dealt
+  damage_types: [PHYSICAL,SKILL]
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    cooldown:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Cooldown
+      item: 0
+    mana:
+      player:
+        base: 8.0
+        per-level: 1.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    extra:
+      player:
+        base: 50.0
+        per-level: 20.0
+      name: Extra
+      item: 0
+BLACK_HOLE:
+  name: Black Hole
+  lore:
+    - Trap anyone in a black hole
+    - they will be unable to move
+    - for the duration of this
+    - move
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BLACK_DYE
+  source: default:BLACK_HOLE
+  parameters:
+    delay:
+      player: 0
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    mana:
+      player:
+        base: 4
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Cooldown
+      item: 35.0
+    duration:
+      player:
+        base: 4
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 2.0
+    radius:
+      player:
+        base: 4
+        per-level: 1
+      name: Radius
+      item: 2.0
+BLIND:
+  name: Blind
+  lore:
+    - Envelop your enemies in a dark
+    - thread, rendering them blind
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: ENDER_EYE
+  source: default:BLIND
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 5
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 5
+        per-level: 1
+      name: Cooldown
+      item: 9.0
+    duration:
+      player:
+        base: 5
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 5.0
+BLINK:
+  name: Blink
+  lore:
+    - Teleport yourself around by
+    - looking at your destination
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: ENDER_PEARL
+  source: default:BLINK
+  parameters:
+    delay:
+      player: 0
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    mana:
+      player:
+        base: 4
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: -0.1
+        min: 1.5
+      name: Cooldown
+      item: 10.0
+    range:
+      player:
+        base: 2
+        per-level: 1
+        max: 8
+      name: Range
+      item: 8.0
+BLIZZARD:
+  name: Blizzard
+  lore:
+    - Launch a barrage of
+    - snowballs directly at
+    - your enemies. Aim true!
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: SNOWBALL
+  source: default:BLIZZARD
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 10
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 1
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 5
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 2.5
+    damage:
+      player:
+        base: 4
+        per-level: 1
+      name: Damage
+      item: 2.0
+    inaccuracy:
+      player:
+        base: 4
+        per-level: -0.5
+      name: Inaccuracy
+      item: 10.0
+    force:
+      player:
+        base: 3
+        per-level: 1
+      name: Force
+      item: 1.0
+BLOODBATH:
+  name: Bloodbath
+  lore:
+    - Steals &c{amount} &7food from your
+    - target, restoring your hunger.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: REDSTONE
+  source: default:BLOODBATH
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: -0.1
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 1
+        per-level: 1
+      name: Cooldown
+      item: 8.0
+    amount:
+      player:
+        base: 2
+        per-level: 1
+      name: Amount
+      item: 2.0
+BOUNCY_FIREBALL:
+  name: Bouncy Fireball
+  categories:
+    - ACTIVE
+  lore:
+    - Unleash a bouncing fireball that
+    - tracks and hits its target,
+    - creating a devastating impact.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: FIRE_CHARGE
+  source: default:BOUNCY_FIREBALL
+  # Change types of damage dealt
+  damage_types: [SKILL,MAGIC,PROJECTILE]
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: -0.1
+    mana:
+      player:
+        base: 5
+        per-level: 2
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 1
+      name: Cooldown
+      item: 20.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 5.0
+    ignite:
+      player:
+        base: 5
+        per-level: 1
+      name: Ignite
+      item: 40.0
+    radius:
+      player:
+        base: 6
+        per-level: 2
+      name: Radius
+      item: 4.0
+    speed:
+      player:
+        base: 0.3
+        per-level: 0.1
+      name: Speed
+      item: 1.0
+BUNNY_MODE:
+  name: Bunny Mode
+  lore:
+    - Move quickly by hopping
+    - around with great agility
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: RABBIT_FOOT
+  source: default:BUNNY_MODE
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 1
+        per-level: -0.05
+    mana:
+      player:
+        base: 8
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 1
+      name: Cooldown
+      item: 50.0
+    duration:
+      player:
+        base: 6
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 20.0
+    jump-force:
+      player:
+        base: 5
+        per-level: 1
+      name: Jump Force
+      item: 1.0
+    speed:
+      player:
+        base: 2
+        per-level: 1
+      name: Speed
+      item: 1.0
+BURN:
+  name: Burn
+  lore:
+    - Ignite your target with a burst of flames
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:BURN
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: 1
+      name: Cooldown
+      item: 8.0
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 3.0
+BURNING_HANDS:
+  name: Burning Hands
+  lore:
+    - Gather your magical energy and unleash
+    - a cone of flames towards your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: CAMPFIRE
+  source: default:BURNING_HANDS
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 2
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 3.0
+    damage:
+      player:
+        base: 4
+        per-level: 1
+      name: Damage
+      item: 2.0
+CHICKEN_WRAITH:
+  name: Chicken Wraith
+  lore:
+    - Unleash chaos by using
+    - this rapid egg shooter
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: EGG
+  source: default:CHICKEN_WRAITH
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: -0.1
+    mana:
+      player:
+        base: 8
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 2.5
+    damage:
+      player:
+        base: 1
+        per-level: 1.5
+      name: Damage
+      item: 2.0
+    inaccuracy:
+      player:
+        base: 4
+        per-level: -0.5
+      name: Inaccuracy
+      item: 10.0
+    force:
+      player:
+        base: 4
+        per-level: 1
+      name: Force
+      item: 1.0
+CIRCULAR_SLASH:
+  name: Circular Slash
+  lore:
+    - Unleash a powerful strike
+    - that sends nearby targets flying
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: IRON_SWORD
+  source: default:CIRCULAR_SLASH
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 6.0
+    knockback:
+      player:
+        base: 2
+        per-level: 1
+      name: Knockback
+      item: 1.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 3.0
+COMBO_ATTACK:
+  name: Combo Attack
+  lore:
+    - Violenty slashes your target &8{count}
+    - times for a total of &8{damage} &7damage.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: IRON_SWORD
+  source: default:COMBO_ATTACK
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 10.0
+        per-level: -0.1
+        max: 5.0
+        min: 3.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 20.0
+        per-level: -0.1
+        max: 20.0
+        min: 5.0
+      name: Cooldown
+      item: 0
+    damage:
+      player:
+        base: 9.0
+        per-level: 1.3
+      format: 0.#
+      name: Damage
+      item: 0
+    count:
+      player:
+        base: 3.0
+        per-level: 1.2
+      name: Count
+      item: 0
+CONFUSE:
+  name: Confuse
+  lore:
+    - Confuse your enemies by performing
+    - a quick 180-degree flip on your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:CONFUSE
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 20
+        per-level: -1
+        min: 10
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: -0.1
+        min: 1
+      name: Cooldown
+      item: 7.0
+CONTAMINATION:
+  name: Contamination
+  lore:
+    - Contaminates the target area, dealing &c{damage}
+    - every second to nearby enemies for &c{duration} &7seconds.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: SOUL_SAND
+  source: default:CONTAMINATION
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 6
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 1
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 8.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 2.0
+CONTROL:
+  name: Control
+  lore:
+    - Your target is temporarily slowed for &8{duration} &7seconds.
+    - As soon as you left click, it gets pushed back in the
+    - direction you're facing.
+    - ''
+    - The higher the skill level, the stronger the knockback.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: MAGENTA_DYE
+  source: default:CONTROL
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 15.0
+        per-level: 1.5
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 18.0
+        per-level: -0.3
+        max: 20.0
+        min: 10.0
+      name: Cooldown
+      item: 0
+    duration:
+      player:
+        base: 2.0
+        per-level: 1.0
+      format: 0.#
+      name: Duration
+      item: 0
+    knockback:
+      player:
+        base: 30.0
+        per-level: 3.0
+      name: Knockback
+      item: 0
+CORROSION:
+  name: Corrosion
+  lore:
+    - Cast a spell that instantly corrodes the target area,
+    - inflicting Poison &c{amplifier}&7 for &8{duration} &7seconds to all
+    - enemies within &8{radius} &7blocks.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: LIME_DYE
+  source: default:CORROSION
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: -0.1
+        min: 1
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    amplifier:
+      player:
+        base: 2
+        per-level: 2
+      name: Amplifier
+      item: 1.0
+    radius:
+      player:
+        base: 4
+        per-level: 3
+      name: Radius
+      item: 5.0
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 4.0
+CORRUPT:
+  name: Corrupt
+  lore:
+    - Corrupts the target area, dealing &c{damage} &7instant
+    - damage to enemies within &8{radius} &7blocks, and
+    - inflicting Wither &c{amplifier}&7 for &8{duration} &7seconds.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:CORRUPT
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    radius:
+      player: 2.7
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 4.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 8.0
+    amplifier:
+      player:
+        base: 2
+        per-level: 1
+      name: Amplifier
+      item: 1.0
+CORRUPTED_FANGS:
+  name: Corrupted Fangs
+  lore:
+    - Summon the fangs of the underworld
+    - with your magic and use them
+    - to attack your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:CORRUPTED_FANGS
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0.5
+    mana:
+      player:
+        base: 15
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 12.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 5.0
+    fangs:
+      player:
+        base: 3
+        per-level: 2
+      name: Fangs
+      item: 6.0
+CURSED_BEAM:
+  name: Cursed Beam
+  lore:
+    - Unleash a cursed beam of dark energy
+    - directly at your target, causing on-hit damage
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:CURSED_BEAM
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 3.5
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 3
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 5.0
+    damage:
+      player:
+        base: 4
+        per-level: 2
+      name: Damage
+      item: 8.0
+DEATH_MARK:
+  name: Death Mark
+  lore:
+    - Mark your target with a death hex, slowing the target
+    - for &c{duration} &7seconds and dealing &c{damage} &7damage
+    - over time.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:DEATH_MARK
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 10
+        per-level: 1.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 0.5
+      name: Cooldown
+      item: 7.0
+    duration:
+      player:
+        base: 5
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 3.0
+    damage:
+      player:
+        base: 4
+        per-level: 0.1
+      name: Damage
+      item: 5.0
+    amplifier:
+      player:
+        base: 2
+        per-level: 1
+      name: Amplifier
+      item: 1.0
+DEEP_WOUND:
+  name: Deep Wound
+  lore:
+    - You puncture your target, dealing &c{damage} &7damage.
+    - Damage is increased up to &c+{extra}% &7based
+    - on your target's missing health.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: REDSTONE
+  source: default:DEEP_WOUND
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 8.0
+        per-level: 3.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 20.0
+        per-level: -0.1
+        max: 20.0
+        min: 5.0
+      name: Cooldown
+      item: 0
+    damage:
+      player:
+        base: 5.0
+        per-level: 1.5
+      format: 0.#
+      name: Damage
+      item: 0
+    extra:
+      player:
+        base: 50.0
+        per-level: 20.0
+      name: Extra
+      item: 0
+EARTHQUAKE:
+  name: Earthquake
+  lore:
+    - Unleash a rippling wave of energy
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:EARTHQUAKE
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 10
+        per-level: 1.3
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 5
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 2.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 3.0
+    amplifier:
+      player:
+        base: 4
+        per-level: 2
+      name: Amplifier
+      item: 1.0
+EMPOWERED_ATTACK:
+  name: Empowered Attack
+  lore:
+    - You charge your weapon with lightning.
+    - Your next attack deals &f{extra}% &7extra damage
+    - and spreads to enemies within &f{radius} &7blocks
+    - for &f{ratio}% &7of the initial damage.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BONE_MEAL
+  source: default:EMPOWERED_ATTACK
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 4.0
+        per-level: 1.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 10.0
+        per-level: -0.2
+        max: 10.0
+        min: 5.0
+      name: Cooldown
+      item: 0
+    extra:
+      player:
+        base: 30.0
+        per-level: 8.0
+      name: Extra
+      item: 0
+    radius:
+      player:
+        base: 4.0
+        per-level: 1.0
+      name: Radius
+      item: 0
+    ratio:
+      player:
+        base: 30.0
+        per-level: 10.0
+        max: 100.0
+        min: 30.0
+      name: Ratio
+      item: 0
+EVADE:
+  name: Evade
+  lore:
+    - You become imune to damage for &8{duration} &7seconds.
+    - Cancels when dealing weapon damage.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: LEATHER_BOOTS
+  source: default:EVADE
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 8.0
+        per-level: 3.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 20.0
+        per-level: 1.0
+      name: Cooldown
+      item: 0
+    duration:
+      player:
+        base: 2.0
+        per-level: 1.3
+        max: 10.0
+        min: 2.0
+      format: 0.#
+      name: Duration
+      item: 0
+EXPLOSIVE_TURKEY:
+  name: Explosive Turkey
+  lore:
+    - Launch an explosive turkey
+    - by aiming at the ground
+    - near your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:EXPLOSIVE_TURKEY
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 1
+    mana:
+      player:
+        base: 7
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 4.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 6.0
+    knockback:
+      player:
+        base: 3
+        per-level: 1
+      name: Knockback
+      item: 1.0
+    radius:
+      player:
+        base: 2
+        per-level: 1
+      name: Radius
+      item: 4.0
+FIRE_BERSERKER:
+  name: Fire Berserker
+  lore:
+    - You deal &c{extra}% &7more damage when on fire.
+  icon: FLINT_AND_STEEL
+  source: default:FIRE_BERSERKER
+  parameters:
+    mana:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    extra:
+      player:
+        base: 10.0
+        per-level: 5.0
+      name: Extra
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+    cooldown:
+      name: Cooldown
+      item: 0
+FIRE_METEOR:
+  name: Fire Meteor
+  lore:
+    - Unleash the fury of hell with
+    - this devasting meteor strike
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: FIRE_CHARGE
+  source: default:FIRE_METEOR
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 9
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 6.0
+    knockback:
+      player:
+        base: 2
+        per-level: 1
+      name: Knockback
+      item: 1.0
+    radius:
+      player:
+        base: 5
+        per-level: 2
+      name: Radius
+      item: 4.0
+FIRE_RAGE:
+  name: Fire Rage
+  lore:
+    - For &8{duration} &7seconds, you slow down and are able
+    - to cast up to &c{count} &7fireballs by left clicking.
+    - ''
+    - Fireballs deal &c{damage} &7damage upon contact
+    - and ignite your target for &c{ignite} &7seconds.
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: FIRE_CHARGE
+  source: default:FIRE_RAGE
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 15.0
+        per-level: 1.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 9.0
+        per-level: -0.1
+        max: 5.0
+        min: 1.0
+      name: Cooldown
+      item: 0
+    duration:
+      player:
+        base: 8.0
+        per-level: 1.0
+      format: 0.#
+      name: Duration
+      item: 0
+    damage:
+      player:
+        base: 5.0
+        per-level: 3.0
+      name: Damage
+      item: 0
+    ignite:
+      player:
+        base: 2.0
+        per-level: 1.1
+      name: Ignite
+      item: 0
+    count:
+      player:
+        base: 4.0
+        per-level: 1.0
+      name: Count
+      item: 0
+FIRE_STORM:
+  name: Fire Storm
+  lore:
+    - Casts a flurry of 6 fire projectiles onto
+    - nearby enemies, proritizing the initial
+    - target. Each projectile deals &c{damage} &7damage
+    - and ignite the target for &c{ignite} &7seconds.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BLAZE_POWDER
+  source: default:FIRE_STORM
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0
+    delay:
+      player: 0
+      name: Delay
+      item: 0
+    mana:
+      player:
+        base: 15.0
+        per-level: 2.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 5.0
+        per-level: -0.1
+        max: 5.0
+        min: 1.0
+      name: Cooldown
+      item: 0
+    damage:
+      player:
+        base: 5.0
+        per-level: 3.0
+      format: 0.#
+      name: Damage
+      item: 0
+    ignite:
+      player:
+        base: 2.0
+        per-level: 1.1
+      name: Ignite
+      item: 0
+FIREBALL:
+  name: Fireball
+  lore:
+    - Casts a deadly fireball onto your
+    - target, dealing &c{damage} &7damage upon contact
+    - and igniting it for &c{ignite} &7seconds.
+    - ''
+    - Shatters into 3 blazing hot shards which stick
+    - to walls and explode 3 seconds later, dealing
+    - '&c{ratio}% &7of the initial spell damage.'
+    - ''
+    - Shards deal more damage the more health the
+    - player is missing, up to 50% missing health.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon:
+    item: EMERALD
+  source: default:FIREBALL
+  # Change types of damage dealt
+  damage_types: [SKILL,MAGIC,PROJECTILE]
+  parameters:
+    mana:
+      player: 15 + 1.0 * {level}
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 5
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 9.0
+        per-level: -0.1
+        min: 3.0
+      name: Cooldown
+      item: 0
+    timer:
+      player:
+        base: 2
+        per-level: 0
+      name: Timer
+      item: 0
+    delay:
+      player:
+        base: 1
+        per-level: -0.1
+        min: 0.3
+      name: Delay
+      item: 0
+    damage:
+      player:
+        base: 5.0
+        per-level: 3.0
+      format: 0.#
+      name: Damage
+      item: 0
+    ignite:
+      player: min(2 + 1.1 * {level}, 10)
+      name: Ignite
+      item: 0
+    ratio:
+      player:
+        formula: 50 + min( 0.5, 1 - (%mmocore_health% / %mmocore_max_health%)) * 30
+          * 2
+        failsafe: 50.0
+      name: Ratio
+      item: 0
+FIREBOLT:
+  name: Firebolt
+  lore:
+    - You conjure a flaming
+    - ball and hurl it at
+    - your targets
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:FIREBOLT
+  # Change types of damage dealt
+  damage_types: [MAGIC,SKILL,PROJECTILE]
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 3
+        per-level: 1
+      name: Damage
+      item: 6.0
+    ignite:
+      player:
+        base: 2
+        per-level: 1
+      name: Ignite
+      item: 3.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 7
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+FIREFLY:
+  name: Firefly
+  lore:
+    - Propel yourself forward like a rocket
+    - and damage any targets who don't move out
+    - the way in time
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: FLINT_AND_STEEL
+  source: default:FIREFLY
+  parameters:
+    duration:
+      player:
+        base: 5
+        per-level: 2
+      format: 0.#
+      name: Duration
+      item: 2.5
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 1.7
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 9
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    knockback:
+      player:
+        base: 2
+        per-level: 1
+      name: Knockback
+      item: 1.0
+FREEZE:
+  name: Freeze
+  lore:
+    - Launch a rapid snowball
+    - that inflicts a slowing effect
+    - on any entity within its range
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: SNOWBALL
+  source: default:FREEZE
+  parameters:
+    duration:
+      player:
+        base: 5
+        per-level: 2
+      format: 0.#
+      name: Duration
+      item: 4.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 5
+        per-level: 1.2
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 5
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    amplifier:
+      player:
+        base: 6
+        per-level: 5
+      name: Amplifier
+      item: 2.0
+    radius:
+      player:
+        base: 7
+        per-level: 6
+      name: Radius
+      item: 5.0
+FREEZING_CURSE:
+  name: Freezing Curse
+  lore:
+    - Swiftly inscribe a cursed circle of
+    - magic, which momentarily inflicts
+    - your target with slowness
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: SNOWBALL
+  source: default:FREEZING_CURSE
+  parameters:
+    duration:
+      player:
+        base: 3
+        per-level: 2
+      format: 0.#
+      name: Duration
+      item: 3.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 3.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 3
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 7.0
+    amplifier:
+      player:
+        base: 2
+        per-level: 1
+      name: Amplifier
+      item: 1.0
+    radius:
+      player:
+        base: 3
+        per-level: 2
+      name: Radius
+      item: 3.0
+FROG_MODE:
+  name: Frog Mode
+  lore:
+    - Use this agility-based ability to dive
+    - in and out of water with ease,
+    - granting you a crucial advantage
+    - in aquatic environments.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:FROG_MODE
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 20.0
+    timer:
+      player:
+        base: 2
+        per-level: 1
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: 1
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 50.0
+    jump-force:
+      player:
+        base: 4
+        per-level: 3
+      name: Jump Force
+      item: 1.0
+    speed:
+      player:
+        base: 2
+        per-level: 1
+      name: Speed
+      item: 1.0
+FROZEN_AURA:
+  name: Frozen Aura
+  lore:
+    - Sorrund yourself with a
+    - frigid aura that slows
+    - down nearby entities
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:FROZEN_AURA
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 6.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 5
+        per-level: 0.4
+      name: Cooldown
+      item: 10.0
+    amplifier:
+      player:
+        base: 3
+        per-level: 2
+      name: Amplifier
+      item: 1.0
+    radius:
+      player:
+        base: 4
+        per-level: 3
+      name: Radius
+      item: 10.0
+FURTIVE_STRIKE:
+  name: Furtive Strike
+  lore:
+    - Deals &c{damage} &7damage, increased by &c{extra}% &7if
+    - there are not any enemies within &c{radius} &7blocks.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: COAL
+  source: default:FURTIVE_STRIKE
+  parameters:
+    damage:
+      player:
+        base: 5.0
+        per-level: 1.5
+      format: 0.#
+      name: Damage
+      item: 0
+    mana:
+      player:
+        base: 8.0
+        per-level: 3.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    extra:
+      player:
+        base: 50.0
+        per-level: 20.0
+      name: Extra
+      item: 0
+    cooldown:
+      player:
+        base: 20.0
+        per-level: -0.1
+        max: 20.0
+        min: 5.0
+      name: Cooldown
+      item: 0
+    radius:
+      player:
+        base: 7.0
+        per-level: 1.0
+      name: Radius
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+GRAND_HEAL:
+  name: Grand Heal
+  lore:
+    - Restore health to yourself
+    - and nearby allies
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:GRAND_HEAL
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: 1
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2.5
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: 1.1
+      name: Cooldown
+      item: 15.0
+    heal:
+      player:
+        base: 4
+        per-level: 3
+      name: Heal
+      item: 5.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 5.0
+GREATER_HEALINGS:
+  name: Greater Healings
+  lore:
+    - Instantly grants &a{heal} &7HP to the
+    - target. Sneak to cast it on yourself.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: GOLDEN_APPLE
+  source: default:GREATER_HEALINGS
+  parameters:
+    mana:
+      player:
+        base: 4.0
+        per-level: 2.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    heal:
+      player:
+        base: 10.0
+        per-level: 4.0
+      name: Heal
+      item: 0
+    cooldown:
+      player:
+        base: 9.0
+        per-level: -0.1
+        max: 5.0
+        min: 1.0
+      name: Cooldown
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+HEAL:
+  name: Heal
+  lore:
+    - Use this ability for a rapid
+    - healing effect
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:HEAL
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: 0.1
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 4
+        per-level: 0.2
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Cooldown
+      item: 10.0
+    heal:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Heal
+      item: 4.0
+HEAVY_CHARGE:
+  name: Heavy Charge
+  lore:
+    - Charge forward at lightning speeds
+    - towards your target. Dealing devasting
+    - damage upon impact
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:HEAVY_CHARGE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 5
+        per-level: 0.3
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 2
+        per-level: 0.5
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 10
+        per-level: -0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 1.5
+      name: Cooldown
+      item: 10.0
+    knockback:
+      player:
+        base: 1
+        per-level: 0.5
+      name: Knockback
+      item: 1.0
+HOEARTHQUAKE:
+  name: Hoearthquake
+  lore:
+    - Unleash this ground moving projectile
+    - that ripples the earth, damaging
+    - and disorienting your enemies in
+    - its path
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:HOEARTHQUAKE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: 1
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 6
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 0.2
+      name: Cooldown
+      item: 10.0
+HOLY_MISSILE:
+  name: Holy Missile
+  lore:
+    - Launch a swift and sacred projectile
+    - towards your intended target
+    - inflicting divine damage upon impact
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:HOLY_MISSILE
+  parameters:
+    duration:
+      player:
+        base: 4
+        per-level: 3
+      format: 0.#
+      name: Duration
+      item: 4.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 15
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 0.2
+      name: Cooldown
+      item: 10.0
+HUMAN_SHIELD:
+  name: Human Shield
+  lore:
+    - Casts a protection charm onto target ally,
+    - reducing damage taken by &a{reduction}%&7.
+    - '&a{redirect}% &7of this damage is redirected to you.'
+    - Charm is cancelled when reaching &c{low}%&7 health.
+    - Lasts &a{duration} &7seconds.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: TOTEM_OF_UNDYING
+  source: default:HUMAN_SHIELD
+  parameters:
+    redirect:
+      player:
+        base: 30.0
+        per-level: -2.0
+        max: 30.0
+        min: 20.0
+      format: 0.#
+      name: Redirect
+      item: 0
+    duration:
+      player:
+        base: 7.0
+        per-level: 1.0
+      name: Duration
+      item: 0
+    mana:
+      player:
+        base: 15.0
+        per-level: 1.5
+      name: Mana
+      item: 0
+    low:
+      player:
+        base: 10.0
+        per-level: 1.0
+      name: Low
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 18.0
+        per-level: -0.3
+        max: 18.0
+        min: 14.0
+      name: Cooldown
+      item: 0
+    reduction:
+      player:
+        base: 30.0
+        per-level: 3.0
+        max: 70.0
+        min: 30.0
+      name: Reduction
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+ICE_CRYSTAL:
+  name: Ice Crystal
+  lore:
+    - Unleash a frigid crystal projectile
+    - that ones in on your target. Encasing them
+    - in ice and slows them down
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:ICE_CRYSTAL
+  parameters:
+    duration:
+      player:
+        base: 4
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 3.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 1.1
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: 0.2
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 5
+        per-level: 1.3
+      name: Cooldown
+      item: 10.0
+    amplifier:
+      player:
+        base: 3
+        per-level: 1.1
+      name: Amplifier
+      item: 1.0
+ICE_SPIKES:
+  name: Ice Spikes
+  lore:
+    - Ice spikes summon from the ground
+    - and shatter, each dealing &9{damage} &7damage
+    - to hit enemies and slowing them down
+    - for &9{slow} &7seconds.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: SNOWBALL
+  source: default:ICE_SPIKES
+  parameters:
+    damage:
+      player:
+        base: 3.0
+        per-level: 1.0
+      format: 0.#
+      name: Damage
+      item: 0
+    mana:
+      player:
+        base: 20.0
+        per-level: 2.0
+      name: Mana
+      item: 0
+    slow:
+      player:
+        base: 4.0
+        per-level: 1.0
+      name: Slow
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 6.0
+        per-level: -0.1
+        max: 6.0
+        min: 2.0
+      name: Cooldown
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+IGNITE:
+  name: Ignite
+  lore:
+    - Set your target aflame with
+    - a fierce blaze using this
+    - powerful ability
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:IGNITE
+  parameters:
+    duration:
+      player:
+        base: 2
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 80.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2.5
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    max-ignite:
+      player:
+        base: 4
+        per-level: 3
+      name: Max Ignite
+      item: 200.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 5.0
+ITEM_BOMB:
+  name: Item Bomb
+  lore:
+    - Channel your power and transmute the
+    - object in your hand, into an volatile
+    - explosive that can be thrown
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:ITEM_BOMB
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 7.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    slow-duration:
+      player:
+        base: 5
+        per-level: 3
+      name: Slow Duration
+      item: 4.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    slow-amplifier:
+      player:
+        base: 3
+        per-level: 1
+      name: Slow Amplifier
+      item: 1.0
+    cooldown:
+      player:
+        base: 5
+        per-level: 1
+      name: Cooldown
+      item: 15.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 6.0
+ITEM_THROW:
+  name: Item Throw
+  lore:
+    - Swiftly hurl the object in your
+    - hand at your target with
+    - dealy accuracy
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:ITEM_THROW
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 1.1
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 3
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 0.5
+      name: Cooldown
+      item: 10.0
+    force:
+      player:
+        base: 2
+        per-level: 1
+      name: Force
+      item: 1.0
+LEAP:
+  name: Leap
+  lore:
+    - Blast yourself away with
+    - explosive force. Hurling
+    - through the air
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:LEAP
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2.2
+        per-level: 0.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.3
+      name: Cooldown
+      item: 10.0
+    force:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Force
+      item: 1.0
+LIFE_ENDER:
+  name: Life Ender
+  lore:
+    - Harness the power of the End
+    - and summon a devasting meteor
+    - from the sky with cataclysmic force
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:LIFE_ENDER
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 2
+        per-level: 1
+      name: Damage
+      item: 5.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    knockback:
+      player:
+        base: 3
+        per-level: 1
+      name: Knockback
+      item: 1.0
+    radius:
+      player:
+        base: 5
+        per-level: 1
+      name: Radius
+      item: 4.0
+LIGHT_DASH:
+  name: Light Dash
+  lore:
+    - Propel yourself forward
+    - at incredible speeds
+    - striking and damaging any
+    - entity in your path
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:LIGHT_DASH
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 6
+        per-level: 0.3
+      name: Damage
+      item: 3.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 5
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    length:
+      player:
+        base: 4
+        per-level: 1
+      name: Length
+      item: 1.0
+LIGHTNING_BEAM:
+  name: Lightning Beam
+  lore:
+    - Summon a powerful
+    - and eletricfying beam of
+    - lightning from the heavens
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:LIGHTNING_BEAM
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Damage
+      item: 8.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 10
+        per-level: 2.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: 1
+      name: Cooldown
+      item: 10.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 5.0
+MAGICAL_PATH:
+  name: Magical Path
+  lore:
+    - Manifest a solid magical platform
+    - in midair, allowing you
+    - to traverse inaccessible areas
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:MAGICAL_PATH
+  parameters:
+    duration:
+      player:
+        base: 5
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 3.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: 1.2
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 0.7
+      name: Cooldown
+      item: 15.0
+MAGICAL_SHIELD:
+  name: Magical Shield
+  lore:
+    - Erect a powerful and ephemeral
+    - dome-shaped shield of magical power
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:MAGICAL_SHIELD
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: 3
+      format: 0.#
+      name: Duration
+      item: 5.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 6
+        per-level: 0.3
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.2
+      name: Cooldown
+      item: 35.0
+    power:
+      player:
+        base: 3
+        per-level: 1
+      name: Power
+      item: 40.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 5.0
+MAGMA_FISSURE:
+  name: Magma Fissure
+  lore:
+    - Unleash a scorching and destructive
+    - line of molten magma towards the target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:MAGMA_FISSURE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    ignite:
+      player:
+        base: 3
+        per-level: 0.3
+      name: Ignite
+      item: 4.0
+    damage:
+      player:
+        base: 4
+        per-level: 1.5
+      name: Damage
+      item: 4.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 6
+        per-level: 0.3
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 0.5
+      name: Cooldown
+      item: 10.0
+MINOR_EXPLOSION:
+  name: Minor Explosion
+  lore:
+    - Generate a small
+    - controlled explosion
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:MINOR_EXPLOSION
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 3
+        per-level: 0.1
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 5
+        per-level: 1.2
+        min: 0
+        max: 0
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 0.5
+        min: 0
+        max: 0
+      name: Cooldown
+      item: 10.0
+    knockback:
+      player:
+        base: 2.3
+        per-level: 0.1
+        min: 0
+        max: 0
+      name: Knockback
+      item: 1.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+        min: 0
+        max: 0
+      name: Radius
+      item: 5.0
+MINOR_HEALINGS:
+  name: Minor Healings
+  lore:
+    - Instantly grants &a{heal} &7HP to the
+    - target. Sneak to cast it on yourself.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: GOLDEN_APPLE
+  source: default:MINOR_HEALINGS
+  parameters:
+    mana:
+      player:
+        base: 4.0
+        per-level: 2.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    heal:
+      player:
+        base: 4.0
+        per-level: 2.0
+      name: Heal
+      item: 0
+    cooldown:
+      player:
+        base: 9.0
+        per-level: -0.1
+        max: 5.0
+        min: 1.0
+      name: Cooldown
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+NEPTUNE_GIFT:
+  name: Neptune's Gift
+  lore:
+    - Resource regeneration is increased by &8{extra}% &7when standing in water.
+  icon: LILY_PAD
+  source: default:NEPTUNE_GIFT
+  parameters:
+    extra:
+      player:
+        base: 30.0
+        per-level: 5.0
+      format: 0.#
+      name: Extra
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+    mana:
+      name: Mana
+      item: 0
+    stamina:
+      name: Stamina
+      item: 0
+    cooldown:
+      name: Cooldown
+      item: 0
+OVERLOAD:
+  name: Overload
+  lore:
+    - Channel an explosive
+    - and volatile power
+    - within yourself
+    - ''
+    - Transforming yourself into a living bomb
+    - that unleases a devasting blast of damage
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:OVERLOAD
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 6
+        per-level: 1.2
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 4
+        per-level: 1.1
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 10
+        per-level: 1.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 15
+        per-level: 1.1
+        min: 0
+        max: 0
+      name: Cooldown
+      item: 10.0
+    radius:
+      player:
+        base: 5
+        per-level: 1
+      name: Radius
+      item: 6.0
+POISON:
+  name: Poison
+  lore:
+    - Launch venomous and debilitating
+    - poison attack upon your attack
+    - ''
+    - Inflicting ongoing damage
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:POISON
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: 0.3
+      format: 0.#
+      name: Duration
+      item: 4.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 5
+        per-level: 1.3
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: 1.1
+      name: Cooldown
+      item: 10.0
+    amplifier:
+      player:
+        base: 3
+        per-level: 1
+      name: Amplifier
+      item: 1.0
+POWER_MARK:
+  name: Power Mark
+  lore:
+    - Attacking an enemy applies a deadly
+    - magical mark which spreads accross the
+    - ground. This mark accumulates &6{ratio}%
+    - of the damage dealt to the initial
+    - target over &6{duration} &7seconds.
+    - ''
+    - After this duration, the mark bursts, dealing
+    - accumulated damage to nearby enemies and
+    - stunning them for &6{stun}+ &7seconds.
+    - ''
+    - The more damage, the longer the stun.
+    - ''
+    - '&e{cooldown}s Cooldown'
+  icon: WITHER_SKELETON_SKULL
+  source: default:POWER_MARK
+  parameters:
+    duration:
+      player:
+        base: 10.0
+        per-level: 1.1
+      format: 0.#
+      name: Duration
+      item: 0
+    mana:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 30.0
+        per-level: 1.0
+      name: Cooldown
+      item: 0
+    stun:
+      player:
+        base: 2.4
+        per-level: 1.03
+      name: Stun
+      item: 0
+    ratio:
+      player:
+        base: 10.0
+        per-level: 5.0
+      name: Ratio
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+PRESENT_THROW:
+  name: Present Throw
+  lore:
+    - Hurl a festive and explosive
+    - present towards your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:PRESENT_THROW
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 3
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: 1.4
+      name: Cooldown
+      item: 10.0
+    force:
+      player:
+        base: 2
+        per-level: 1.2
+      name: Force
+      item: 1.0
+    radius:
+      player:
+        base: 3
+        per-level: 1
+      name: Radius
+      item: 4.0
+REGEN_ALLY:
+  name: Regen Ally
+  lore:
+    - Provide a potent and restorative
+    - healing effact to any ally
+    - in close proximity
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:REGEN_ALLY
+  parameters:
+    duration:
+      player:
+        base: 5
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 3.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 3
+        per-level: 0.4
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 0.5
+      name: Cooldown
+      item: 10.0
+    heal:
+      player:
+        base: 4
+        per-level: 1.1
+      name: Heal
+      item: 7.0
+SHADOW_VEIL:
+  name: Shadow Veil
+  lore:
+    - Shroud yourself in a
+    - veil of invisibility
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SHADOW_VEIL
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: 1
+      format: 0.#
+      name: Duration
+      item: 5.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 10
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    deception:
+      player:
+        base: 4
+        per-level: 0.3
+      name: Deception
+      item: 1.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 1.5
+      name: Cooldown
+      item: 35.0
+SHOCK:
+  name: Shock
+  lore:
+    - Inflict a painful effect
+    - wearing down your enemy
+    - null
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SHOCK
+  parameters:
+    duration:
+      player:
+        base: 6
+        per-level: 1.3
+      format: 0.#
+      name: Duration
+      item: 2.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 5
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.4
+      name: Cooldown
+      item: 8.0
+SHOCKWAVE:
+  name: Shockwave
+  lore:
+    - Send your target soaring
+    - into the sky with a stunning
+    - and forceful blow
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SHOCKWAVE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 6
+        per-level: 0.1
+        min: 0
+        max: 0
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 7
+        per-level: -0.5
+      name: Cooldown
+      item: 7.5
+    length:
+      player:
+        base: 10
+        per-level: 1
+      name: Length
+      item: 5.0
+    knock-up:
+      player:
+        base: 5
+        per-level: 1
+      name: Knock Up
+      item: 1.0
+SHULKER_MISSILE:
+  name: Shulker Missile
+  lore:
+    - Shoots four shulker projectiles that
+    - explode on impact, dealing &c{damage} &7damage and
+    - inflicting &cLevitation &7for &c{effect-duration}s&7.
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: SHULKER_SHELL
+  source: default:SHULKER_MISSILE
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: -0.1
+    mana:
+      player:
+        base: 8
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 12.0
+    duration:
+      player:
+        base: 4
+        per-level: 0
+      format: 0.#
+      name: Duration
+      item: 5.0
+    damage:
+      player:
+        base: 5
+        per-level: 1
+      name: Damage
+      item: 5.0
+    effect-duration:
+      player:
+        base: 2
+        per-level: 0
+      name: Effect Duration
+      item: 5.0
+SKY_SMASH:
+  name: Sky Smash
+  lore:
+    - Launch your enemy skyward
+    - with this visible, impactful,
+    - and, disorienting attack
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SKY_SMASH
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 1.5
+      name: Damage
+      item: 3.0
+    delay:
+      player:
+        base: 4
+        per-level: 0.5
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: -0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 0.4
+      name: Cooldown
+      item: 10.0
+    knock-up:
+      player:
+        base: 2
+        per-level: 0.3
+      name: Knock Up
+      item: 1.0
+SLOW:
+  name: Slow
+  lore:
+    - Impose a debilitating slowdown
+    - effect upon your enemy. Reducing
+    - their movement speed and leaving them
+    - vulnerable to attacks
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SLOW
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: -0.5
+        min: 0
+        max: 0
+      format: 0.#
+      name: Duration
+      item: 3.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 3
+        per-level: 1.1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: -1.5
+        min: 0
+        max: 0
+      name: Cooldown
+      item: 5.0
+    amplifier:
+      player:
+        base: 3
+        per-level: 1
+      name: Amplifier
+      item: 1.0
+SMITE:
+  name: Smite
+  lore:
+    - Harness the immense power
+    - of lightning to smite your
+    - enemies!
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SMITE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 1.1
+      name: Damage
+      item: 8.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 1.3
+        min: 0
+        max: 0
+      name: Cooldown
+      item: 10.0
+SNEAKY_PICKY:
+  name: Sneaky Picky
+  lore:
+    - Your attack is empowered by &f{extra}% &7when
+    - delivering the first blow during a fight.
+    - ''
+    - '&9Costs {mana} {mana_name}'
+  icon: DIAMOND_SWORD
+  source: default:SNEAKY_PICKY
+  parameters:
+    mana:
+      player:
+        base: 8.0
+        per-level: 1.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    extra:
+      player:
+        base: 50.0
+        per-level: 20.0
+      name: Extra
+      item: 0
+    cooldown:
+      player:
+        base: 2.0
+        per-level: 1.0
+      name: Cooldown
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+SNOWMAN_TURRET:
+  name: Snowman Turret
+  lore:
+    - Summon a hired snowman
+    - to aid in your attack
+    - ''
+    - Unleashing a flurry
+    - of snowballs
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SNOWMAN_TURRET
+  parameters:
+    duration:
+      player:
+        base: 6
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 6.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 5
+        per-level: 0.5
+      name: Damage
+      item: 2.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: -0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: -0.5
+      name: Cooldown
+      item: 35.0
+    radius:
+      player:
+        base: 4
+        per-level: 1
+      name: Radius
+      item: 20.0
+SPARKLE:
+  name: Sparkle
+  lore:
+    - Send a shimmering blast
+    - of damage, leaving them
+    - reeling from the attack
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SPARKLE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Damage
+      item: 4.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 4
+        per-level: -0.5
+        min: 0
+        max: 0
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 1.1
+      name: Cooldown
+      item: 10.0
+    limit:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Limit
+      item: 5.0
+    radius:
+      player:
+        base: 3
+        per-level: 1.5
+      name: Radius
+      item: 6.0
+STARFALL:
+  name: Starfall
+  lore:
+    - Unleash a devasting attack
+    - causing magic stars to fall
+    - upon your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:STARFALL
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4.2
+        per-level: 1.1
+      name: Damage
+      item: 3.5
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.2
+      name: Cooldown
+      item: 8.0
+STUN:
+  name: Stun
+  lore:
+    - Induce a temporary
+    - state of paralysis
+    - in your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:STUN
+  parameters:
+    duration:
+      player:
+        base: 6
+        per-level: 0.2
+      format: 0.#
+      name: Duration
+      item: 2.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: -0.2
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 6
+        per-level: 0.3
+      name: Cooldown
+      item: 10.0
+SWIFTNESS:
+  name: Swiftness
+  lore:
+    - Grant yourself a burst
+    - agility with a quick boost
+    - of speed and jump boost
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:SWIFTNESS
+  parameters:
+    duration:
+      player:
+        base: 10
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 4.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 4
+        per-level: 1.2
+        min: 0
+        max: 0
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 5
+        per-level: 0.5
+      name: Cooldown
+      item: 15.0
+    amplifier:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Amplifier
+      item: 1.0
+TACTICAL_GRENADE:
+  name: Tactical Grenade
+  lore:
+    - Launch a homing grenade
+    - at your target, propelling
+    - them into the air upon impact
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:TACTICAL_GRENADE
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Damage
+      item: 4.0
+    delay:
+      player:
+        base: 3
+        per-level: -0.2
+    mana:
+      player:
+        base: 10
+        per-level: -0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 20
+        per-level: -1.5
+      name: Cooldown
+      item: 10.0
+    radius:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Radius
+      item: 4.0
+    knock-up:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Knock Up
+      item: 1.0
+TARGETED_FIREBALL:
+  name: Targeted Fireball
+  lore:
+    - Launch a homing fireball
+    - towards your target
+    - causing them to fruitlessly
+    - run away
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:TARGETED_FIREBALL
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    ignite:
+      player:
+        base: 3
+        per-level: 0.5
+      name: Ignite
+      item: 4.0
+    damage:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Damage
+      item: 4.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 10
+        per-level: 1.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 15
+        per-level: -0.5
+      name: Cooldown
+      item: 10.0
+TELEKINESY:
+  name: Telekinesy
+  lore:
+    - You take the control over your target
+    - for &9{duration} &7seconds. Left click to throw him.
+    - 'Knockback force: &f{knockback}%'
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: MAGENTA_DYE
+  source: default:TELEKINESY
+  parameters:
+    duration:
+      player:
+        base: 3.0
+        per-level: 1.1
+        max: 6.0
+        min: 3.0
+      format: 0.#
+      name: Duration
+      item: 0
+    mana:
+      player:
+        base: 20.0
+        per-level: 2.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 20.0
+        per-level: -0.3
+        max: 20.0
+        min: 10.0
+      name: Cooldown
+      item: 0
+    knockback:
+      player:
+        base: 50.0
+        per-level: 10.0
+      name: Knockback
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+THROW_UP:
+  name: Throw Up
+  lore:
+    - Hurl pieces of decaying
+    - flesh at your target
+    - dealing damage on impact
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:THROW_UP
+  parameters:
+    duration:
+      player:
+        base: 3
+        per-level: 1.1
+      format: 0.#
+      name: Duration
+      item: 2.5
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 2.4
+        per-level: 1.1
+      name: Damage
+      item: 2.0
+    delay:
+      player:
+        base: 3
+        per-level: -0.5
+    mana:
+      player:
+        base: 8
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: -1.5
+      name: Cooldown
+      item: 10.0
+THRUST:
+  name: Thrust
+  lore:
+    - Charge forward towards
+    - your target, dealing significant
+    - damage upon impact
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:THRUST
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 6
+        per-level: 0.3
+      name: Damage
+      item: 6.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 8
+        per-level: -1.4
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.2
+      name: Cooldown
+      item: 10.0
+TNT_THROW:
+  name: Tnt Throw
+  lore:
+    - Hurl a powerful explosive
+    - obliterating the target
+    - and blocks around the
+    - point of impact
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:TNT_THROW
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+    mana:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 10
+        per-level: 0.5
+      name: Cooldown
+      item: 10.0
+    force:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Force
+      item: 1.0
+VAMPIRISM:
+  name: Vampirism
+  lore:
+    - Gives health depending on
+    - the amount of damage
+    - you dealt to your target
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:VAMPIRISM
+  parameters:
+    timer:
+      player:
+        base: 2
+        per-level: 1
+      format: 0.#
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 2
+        per-level: 1
+    mana:
+      player:
+        base: 2
+        per-level: 1
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 2
+        per-level: 1
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 2
+        per-level: 1
+      name: Cooldown
+      item: 8.0
+    drain:
+      player:
+        base: 6
+        per-level: 1
+        min: 0
+        max: 0
+      name: Drain
+      item: 10.0
+VOID_ZAPPER:
+  name: Void Zapper
+  lore:
+    - Drawing devasting power
+    - from the void, attack
+    - your enemy with this
+    - zapper
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:VOID_ZAPPER
+  parameters:
+    timer:
+      player:
+        base: 0
+        per-level: 0
+      format: 0.#
+      name: Timer
+      item: 0.0
+    damage:
+      player:
+        base: 6
+        per-level: 0.5
+      name: Damage
+      item: 5
+    delay:
+      player:
+        base: 0
+        per-level: 0
+    mana:
+      player:
+        base: 4
+        per-level: 0.2
+      name: Mana
+      item: 0
+    max:
+      player:
+        base: 3
+        per-level: 1
+      name: Max Bounces
+      item: 6
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+      name: Stamina
+      item: 0
+    extra:
+      player:
+        base: 4
+        per-level: 1
+      name: Extra Damage
+      item: 30
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Cooldown
+      item: 10
+    length:
+      player:
+        base: 2
+        per-level: 1
+      name: Length
+      item: 30
+    knockback:
+      player:
+        base: 2
+        per-level: 1
+      name: Knockback
+      item: 1
+WARP:
+  name: Warp
+  lore:
+    - Teleports you to target location.
+    - 'Max. Range: &5{range}'
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: ENDER_PEARL
+  source: default:WARP
+  parameters:
+    mana:
+      player:
+        base: 8.0
+        per-level: 3.0
+      format: 0.#
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 15.0
+        per-level: -0.3
+        max: 15.0
+        min: 2.0
+      name: Cooldown
+      item: 0
+    range:
+      player:
+        base: 16.0
+        per-level: 1.0
+        max: 100.0
+        min: 0.0
+      name: Range
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+WEAKEN_TARGET:
+  name: Weaken Target
+  lore:
+    - Inflict the choosen target
+    - with the Weakness Effect
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:WEAKEN_TARGET
+  parameters:
+    duration:
+      player:
+        base: 5
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 4.0
+    timer:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player:
+        base: 0
+        per-level: 0
+    mana:
+      player:
+        base: 4
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player:
+        base: 0
+        per-level: 0
+        min: 0
+        max: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 4
+        per-level: 0.4
+      name: Cooldown
+      item: 10.0
+    extra-damage:
+      player:
+        base: 4
+        per-level: 1
+      name: Extra Damage
+      item: 40.0
+WEAKEN:
+  name: Weaken
+  lore:
+    - The target is weakened for
+    - '&8{duration} &7seconds and is dealt'
+    - '&7extra &8{ratio}% &7damage.'
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: MAGENTA_DYE
+  source: default:WEAKEN
+  parameters:
+    duration:
+      player:
+        base: 10.0
+        per-level: -0.1
+        max: 10.0
+        min: 5.0
+      format: 0.#
+      name: Duration
+      item: 0
+    mana:
+      player:
+        base: 4.0
+        per-level: 1.0
+      name: Mana
+      item: 0
+    stamina:
+      player:
+        base: 2.0
+        per-level: 1.0
+        max: 0.0
+        min: 0.0
+      name: Stamina
+      item: 0
+    cooldown:
+      player:
+        base: 20.0
+        per-level: -0.1
+        max: 20.0
+        min: 5.0
+      name: Cooldown
+      item: 0
+    ratio:
+      player:
+        base: 30.0
+        per-level: 3.0
+      name: Ratio
+      item: 0
+    timer:
+      name: Timer
+      item: 0
+    delay:
+      name: Delay
+      item: 0
+WITHER:
+  name: Wither
+  lore:
+    - You will inflict your target
+    - with the wither effect
+    - ''
+    - '&e{cooldown}s Cooldown'
+    - '&9Costs {mana} {mana_name}'
+  icon: BOOK
+  source: default:WITHER
+  parameters:
+    timer:
+      player: 0
+      name: Timer
+      item: 0.0
+    delay:
+      player: 0
+    mana:
+      player:
+        base: 6
+        per-level: 0.5
+      name: Mana
+      item: 0.0
+    stamina:
+      player: 0
+      name: Stamina
+      item: 0.0
+    cooldown:
+      player:
+        base: 8
+        per-level: -0.5
+        min: 4
+      name: Cooldown
+      item: 8.0
+    duration:
+      player:
+        base: 6
+        per-level: 0.5
+      format: 0.#
+      name: Duration
+      item: 3.0
+    amplifier:
+      player:
+        base: 3
+        per-level: 1
+        min: 0
+        max: 0
+      name: Amplifier
+      item: 1.0

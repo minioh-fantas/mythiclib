@@ -1,0 +1,12 @@
+name: MythicLib
+author: Indyuce
+main: io.lumine.mythic.lib.MythicLib
+api-version: 1.19
+version: 1.7.1-SNAPSHOT
+description: Hard dependency for the MMO plugins
+
+load-before:
+  - name: MMOCore
+    bootstrap: false
+  - name: MMOItems
+    bootstrap: false

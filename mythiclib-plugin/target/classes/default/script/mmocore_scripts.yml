@@ -1,0 +1,27 @@
+##############################################################################################################################
+#
+# Some scripts used in MMOCore
+#
+##############################################################################################################################
+
+# Script ran when leveling up
+# Displays a helix of particles around the player
+# This is configured in MMOCore/messages.yml > level-up.script
+mmocore_level_up_effect:
+  mechanics:
+    - "helix{tick=mmocore_level_up_effect_tick;radius=1;height=2}"
+
+mmocore_level_up_effect_tick:
+  mechanics:
+    - "spawn_particle{particle=TOTEM}"
+
+
+# Script ran when unlocking a waypoint
+# This is configured in MMOCore/messages.yml > waypoint.unlock.script
+mmocore_waypoint_unlock_effect:
+  mechanics:
+    - "helix{tick=mmocore_waypoint_unlock_effect_tick;radius=1;height=2}"
+
+mmocore_waypoint_unlock_effect_tick:
+  mechanics:
+    - "spawn_particle{particle=PORTAL}"

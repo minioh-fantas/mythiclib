@@ -1,0 +1,366 @@
+# DO NOT TOUCH
+config-version: 1
+
+# This will verbose debug messages to the console when
+# toggled on. This option applies for every MMO- plugin.
+debug: false
+
+# This option is used by MMOInventory and MMOCore to synchronize
+# player data between proxy-connected servers. When a player changes
+# server, the plugin tries to fetch new data X times every 1s, up
+# to a maximum of 5 times by default.
+#
+# Use a higher value if your SQL connection is weak to avoid
+# player data loss.
+max-sync-tries: 5
+
+# Edit general plugin number formatting here.
+# Changes apply on server restart.
+number-format:
+  decimal-separator: .
+
+# Defines how defense behaves. The formula should return the
+# final amount of damage dealt, given the following inputs:
+# - damage dealt #damage#
+# - current player defense #defense#
+#
+# The default formula is inspired from Path of Exile, you can
+# learn more about it on their wiki: https://pathofexile.fandom.com/wiki/Armour
+#
+# natural   <-> non-elemental damage
+# elemental <-> fire/water/.. damage
+defense-application:
+  natural: '#damage# - #defense#'
+  elemental: '#damage# * (1 - (#defense# / (5 * #damage# + #defense#)))'
+
+# By default, MythicLib calculates the player's elemental damage
+# stats and automatically apply it as on-hit damage, before applying
+# custom on-hit scripts for regular attacks/crits.
+#
+# When enabled, MythicLib will NOT apply elemental damage, which leaves
+# it as a responsibility of the user. As a result, on-hit scripts for
+# regular attacks will be applied first.
+skip_elemental_damage_application: false
+
+# Allows to scale health up/down to a specific
+# amount so extra health does not fill up the screen.
+# Changes apply on server restart.
+# Delay should be used if your Users experience issues revolving around seeing too many hearts still. This can occur with plugins such as MySQL Inventory Bridge
+# The delay is in ticks. 20 ticks = 1 second
+health-scale:
+  enabled: false
+  scale: 20
+  delay: 0
+
+# When enabled, SHIFT_<RIGHT_CLICK/DROP_ITEM/...> trigger types are disabled
+# and the corresponding base triggers will trigger even when crouching.
+#
+# When using this option, the SHIFT_<...> triggers still exist but will NOT
+# trigger any skill, so just ignore them.
+ignore_shift_triggers: false
+
+# General options with attack damage types
+damage_types:
+
+  # Unless stated otherwise (by MMOItems item types or skills),
+  # what damage types should be applied to vanilla melee attacks
+  # or projectiles?
+  #
+  # This includes, for instance, melee attacks done with vanilla
+  # weapons (MMOItems weapons all have custom damage types), damage
+  # dealt using vanilla bows and crossbows....
+  default:
+    melee_weapon: [ WEAPON, PHYSICAL ]    # Hitting with a weapon (sword, axe...)
+    melee_unarmed: [ UNARMED, PHYSICAL ]  # Punching with bare hands
+    melee_default: [ PHYSICAL ]           # Hitting with a random non-weapon item
+    bow: [ WEAPON, PROJECTILE, PHYSICAL ] # Bows, crossbows, all projectiles
+    skills: [ SKILL,MAGIC ]                 # Default damage of Fabled/MythicMobs/... skills
+
+  # Links Bukkit DamageCause's to MythicLib damage types.
+  # For instance, you can map damage dealt by Ender Dragon Breath
+  # damage to MAGIC damage type.
+  #
+  # Available Bukkit damage causes available here:
+  # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+  bukkit:
+    MAGIC: [ MAGIC ]                  # Witches and potions
+    DRAGON_BREATH: [ MAGIC ]          # Ender Dragon Breath
+    POISON: [ MAGIC, DOT ]            # Poison potion effect
+    WITHER: [ MAGIC, DOT ]            # Wither potion effect
+    FIRE_TICK: [ PHYSICAL, DOT ]      # Fire damage over time
+    MELTING: [ PHYSICAL, DOT ]        # Powder snow damage (1.20.3+)
+    STARVATION: [ DOT ]               # Starvation damage
+    DRYOUT: [ DOT ]                   # Drying out damage (1.20.4+)
+    FREEZE: [ DOT ]                   # Freezing damage
+    FIRE: [ PHYSICAL ]                # Standing in fire (not fire tick)
+    LAVA: [ PHYSICAL ]                # Lava damage
+    HOT_FLOOR: [ PHYSICAL ]           # Magma block damage
+    SONIC_BOOM: [ PHYSICAL ]          # Elytra sonic boom
+    LIGHTNING: [ PHYSICAL ]           # Lightning and trident channeling
+    FALL: [ PHYSICAL ]                # Fall damage
+    THORNS: [ PHYSICAL ]              # Thorns enchantment
+    CONTACT: [ PHYSICAL ]             # Cactus damage
+    ENTITY_EXPLOSION: [ PHYSICAL ]    # Creeper explosion
+    ENTITY_SWEEP_ATTACK: [ PHYSICAL ] # Sweeping Edge enchantment
+    FALLING_BLOCK: [ PHYSICAL ]       # Anvil or falling block damage
+    FLY_INTO_WALL: [ PHYSICAL ]       # Elytra crash into wall
+    BLOCK_EXPLOSION: [ PHYSICAL ]     # TNT explosion
+    SUFFOCATION: [ PHYSICAL ]         # When inside a block
+    CRAMMING: [ PHYSICAL ]            # Entity cramming (too many entities in one block)
+    DROWNING: [ PHYSICAL ]            # Drowning damage
+
+# When enabled, abilities provided by the item in the offhand will
+# not be triggered. Set to false by default.
+ignore_offhand_click_triggers: false
+
+# What happens when the player is waiting for his skill to cast
+# Does not apply if skill delay (it is a skill parameter) is set to 0
+casting-delay:
+  slowness: 60 # A % based speed reduction when casting
+  cancel-on-move: false # If the casting should cancel if the player moves
+
+  cast-script: # MythicLib script called when the countdown begins
+    enabled: true
+    script:
+      mechanics:
+        - 'sound{sound=BLOCK_END_PORTAL_FRAME_FILL;volume=1;pitch=2}'
+
+  cancel-script: # MythicLib script called if the countdown is cancelled
+    enabled: true
+    # Other format:
+    # script: <public_script_name>
+    script:
+      mechanics:
+        - 'sound{sound=ENTITY_VILLAGER_NO;volume=1;pitch=2}'
+
+  bossbar: # Displayed during casting delay
+    enabled: true
+    format: 'CASTING'
+    style: SEGMENTED_20
+    color: PURPLE
+
+# Change the amount of damage dealt on specific damage sources. This
+# tool comes handy when needing to balance your vanilla damage sources.
+# You can use any math formula for any damage source possible.
+# Available damage sources: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+# Changes apply on server restart.
+#
+# Using {event_damage} will return the initial event damage.
+vanilla-damage-modifiers:
+  enabled: false
+  source:
+    VOID: '%mythiclib_stat_max_health% * .05' # Deals 5% of player's max health
+    FIRE: '{event_damage} * 2' # Multiplies by 2 fire damage
+    WITHER: '%mythiclib_stat_max_health% * .05'
+    LAVA: '%mythiclib_stat_max_health% * .2'
+    DROWNING: '%mythiclib_stat_max_health% * .1'
+
+# Available Options:
+# - TEXT_DISPLAYS (1.19.4+)
+# - CORETOOLS
+# - HOLOGRAPHIC_DISPLAYS
+# - DECENT_HOLOGRAMS
+# - CMI
+# - HOLOGRAMS
+# - TRHOLOGRAM
+# - LEGACY_ARMOR_STANDS
+#
+# Changes apply on server restart.
+hologram-provider: TEXT_DISPLAYS
+
+# Plugin providing player levels. This will propagate to MMOItems
+# for items requirements and MMOInventory for level slot requirements.
+#
+# You can also use a PAPI placeholder. For instance, '%mmocore_level%'
+# will use the integer returned by the MMOCore main class level placeholder.
+#
+# Supported Plugins:
+# - MMOCORE
+# - HEROES
+# - FABLED
+# - SKILLS, SKILLSPRO
+# - RACESANDCLASSES
+# - RPGPLAYERLEVELING
+# - AURELIUMSKILLS, AURASKILLS
+# - BATTLELEVELS
+# - MCMMO
+# - MCRPG
+# - NONE
+# - %mmocore_level% or any PlaceholderAPI placeholder
+level-plugin: MMOCORE
+
+# Plugin providing classes. This will propagate to MMOItems for
+# item requirements and MMOInventory for class slot requirements.
+#
+# You can also use a PAPI placeholder. For instance, '%mmocore_class%'
+# will use the string returned by the MMOCore class name placeholder.
+#
+# Supported Plugins:
+# - MMOCORE
+# - HEROES
+# - FABLED
+# - SKILLS, SKILLSPRO
+# - RACESANDCLASSES
+# - NONE
+# - %mmocore_class% or any PlaceholderAPI placeholder
+class-plugin: MMOCORE
+
+# Plugin providing mana and stamina. This works on MMOItems item
+# requirements and skill costs for MMOItems/MMOCore.
+#
+# For plugins that features only one resource, which is then
+# usually named Mana, Stamina is replaced by food level.
+#
+# Supported Plugins:
+# - MMOCORE
+# - HEROES
+# - FABLED (Mana only)
+# - SKILLS, SKILLSPRO (Mana only)
+# - RACESANDCLASSES (Mana only)
+# - RPGPLAYERLEVELING
+# - AURELIUMSKILLS, AURASKILLS (Mana only)
+# - MYTHICLIB
+# - NONE (Mana is food)
+mana-plugin: MMOCORE
+
+# Enable WorldGuard/Residence flag checks for specific things.
+# If you do not use WG or Residence flags, it is recommended
+# to disable those for spare performance.
+enable_flag_checks:
+  skills: true
+
+# Limits the amount of damage particles that can be sent to a player
+# every tick. By default it's set to 10 particles/tick. These particles
+# can be quite annoying and can even crash the client if there are too many.
+damage-particles-cap:
+  # Set it to 0 to fully disable damage particles
+  max-per-tick: 10
+  enabled: false
+
+# Due to a change made in 1.1.6 related to the movement speed
+# attribute, players see their movement speed reset to .1 when logging in
+#
+# Set to false when having issues with another plugin interfering
+# with the player's movement speed
+fix-movement-speed: false
+
+# By enabling this option, the plugin will attempt to fix
+# too large packets sent to the client. This can happen
+# when the recipes are too large and the client cannot
+# handle them.
+# Changes apply on server restart.
+fix-too-large-packets: false
+
+# In 1.21, Minecraft transferred old modifiers into a new format,
+# fully erasing modifier IDs and only keeping modifier UUIDs. This
+# change prevents plugins from isolating modifiers from their plugin
+# and forces a complete player data reset for attribute modifiers.
+#
+# This will erase attribute modifiers from other plugins, not only
+# the MMO plugins. The MMO plugins will then re-apply the up-to-date
+# attribute modifiers to the player.
+#
+# Attributes are reset on player login.
+#
+# Restart server to apply changes.
+fix_reset_attribute_modifiers:
+
+  enabled: false
+
+  # Increase this number everytime you want to reset your players'
+  # attribute modifiers again.
+  rev_id: 1
+
+  # Set to [] to apply
+  attributes:
+    - MAX_HEALTH
+    - ATTACK_DAMAGE
+    - MOVEMENT_SPEED
+
+# Whether a player performing an offensive/support action can
+# interact with another player. This applies to skills/abilities,
+# MI staff attacks and a few other things.
+#
+# More info available on the MMOCore wiki
+# https://docs.phoenixdevt.fr/mmocore/features/combat.html#pvp-pve-interaction-rules
+interaction_rules:
+
+  # When enabled, apply PvP interaction rules for skills, melee and projectile hits.
+  # This option is toggled off by default to reduce confusion for new users.
+  enabled: true
+
+  # When disabled, support-based skills (buffs or heals)
+  # may only be applied onto players.
+  support_skills_on_mobs: true
+
+  # When PvP is turned off
+  pvp_off:
+
+    offense:
+      self: false # Self-friendly fire when PvP is off
+
+    # Ability to heal self/other players when PvP is off
+    support:
+      party_member: true
+      party_other: true
+      guild_ally: true
+      guild_neutral: true
+      guild_enemy: true
+      self: true # Ability to self-cast buffs
+
+  ## When PvP is turned on
+  pvp_on:
+
+    # Ability to heal self/other players when PvP is on
+    support:
+      party_member: true
+      party_other: false
+      guild_ally: true
+      guild_neutral: true
+      guild_enemy: false
+      self: true
+
+    # Friendly fire for guilds/parties
+    offense:
+      party_member: false
+      guild_ally: false
+      guild_neutral: true
+      self: false  # Self-friendly fire when PvP is on
+
+
+# MythicLib features a default mana/stamina module if you are not using
+# MMOCore nor any RPG plugin that has mana/stamina.
+# Set 'resource-plugin' to 'MYTHICLIB' to enable. Otherwise, these settings
+# are useless.
+builtin_mana:
+
+  # Change default stat values inside MythicLib/stats.yml
+  # Stat names are MAX_MANA, MANA_REGENERATION, MAX_STAMINA, STAMINA_REGENERATION
+
+  # The interval at which regeneration should happen in ticks.
+  # Default value is 10 ticks which is the same as half a second.
+  refresh_rate: 10
+
+  # The percentage of their max mana/stamina which players
+  # get as mana/stamina when logging in for the first time
+  login_ratio:
+    mana: 100
+    stamina: 100
+
+  # Edit here the character used in the resource bars
+  # in the %mmoitems_mana_<mana/stamina>_bar% placeholder.
+  bar:
+    mana:
+      char: █
+      length: 20
+      color:
+        full: AQUA
+        half: DARK_AQUA
+        empty: WHITE
+    stamina:
+      char: █
+      length: 20
+      color:
+        full: GREEN
+        half: DARK_GREEN
+        empty: WHITE

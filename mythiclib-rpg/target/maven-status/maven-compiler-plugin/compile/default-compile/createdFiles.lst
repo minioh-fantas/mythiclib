@@ -1,0 +1,12 @@
+io\lumine\mythic\lib\rpg\compat\SkillsPro.class
+io\lumine\mythic\lib\rpg\compat\Skills.class
+io\lumine\mythic\lib\rpg\compat\RacesAndClasses.class
+io\lumine\mythic\lib\rpg\compat\Heroes.class
+io\lumine\mythic\lib\rpg\compat\McMMO.class
+io\lumine\mythic\lib\rpg\compat\RPGPlayerLeveling.class
+io\lumine\mythic\lib\rpg\compat\AuraSkills.class
+io\lumine\mythic\lib\rpg\compat\ProSkillAPI.class
+io\lumine\mythic\lib\rpg\compat\Fabled.class
+io\lumine\mythic\lib\rpg\compat\McRPG.class
+io\lumine\mythic\lib\rpg\compat\AureliumSkills.class
+io\lumine\mythic\lib\rpg\compat\BattleLevels.class

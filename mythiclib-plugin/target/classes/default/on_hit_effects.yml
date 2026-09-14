@@ -1,0 +1,56 @@
+
+
+######################################
+# Lifesteal & Spellsteal
+#
+# Heals the attacker for a portion of the damage dealt.
+# Lifesteal procs on weapon damage, Spellsteal procs
+# on skill damage.
+######################################
+
+lifesteal_and_spellsteal:
+  skip_event: true # For performance
+  # No cooldown, no roll
+  on_attack: 'mythiclib:lifesteal_and_spellsteal_script'
+
+######################################
+# Weapon Critical Strikes
+######################################
+
+weapon_crits:
+
+  pre_attack: 'mythiclib:weapon_crit_script_check'
+
+  # Formula for cooldown between two consecutive weapon crits (in seconds)
+  # To disable cooldown, delete this line, or comment it out
+  cooldown: '3 * (1 - <stat.critical_strike_cooldown_reduction> / 100)'
+
+  # Chance to successfully perform a weapon crit
+  # This formula should return a value between 0 and 1 (0 being 0% chance, 1 being 100% chance)
+  # Note that, by default, weapon crit strike is capped at 80% (see stats.yml)
+  roll: '<stat.critical_strike_chance> / 100'
+
+  # Skill ran on weapon crit
+  on_attack: 'mythiclib:weapon_crit_script'
+
+
+######################################
+# Skill Critical Strikes
+######################################
+
+skill_crits:
+
+  pre_attack: 'mythiclib:skill_crit_script_check'
+
+  # Formula for cooldown between two consecutive skill crits (in seconds)
+  # To disable cooldown, delete this line, or comment it out
+  cooldown: '3 * (1 - <stat.skill_critical_strike_cooldown_reduction> / 100)'
+
+  # Chance to successfully perform a skill crit
+  # This formula should return a value between 0 and 1 (0 being 0% chance, 1 being 100% chance)
+  # Note that, by default, skill crit strike is capped at 80% (see stats.yml)
+  roll: '<stat.skill_critical_strike_chance> / 100'
+
+  # Skill ran on skill crit
+  on_attack: 'mythiclib:skill_crit_script'
+

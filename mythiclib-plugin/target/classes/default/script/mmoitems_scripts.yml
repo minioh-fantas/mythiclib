@@ -1,0 +1,447 @@
+##############################################################################################################################
+#
+# Blunt, Piercing, Slashing Weapons
+#
+# By default, some weapons are piercing and inflict damage to targets in a cone behind the initial target.
+# The damage propagation ratio is high, however the AoE zone is rather limited compared to blunt/slashing weapons.
+# Piercing weapons are usually daggers, shortswords, spears, lances.
+#
+# Slashing weapons also deal AoE damage with a lower damage propagation % and larger AoE area.
+# Slashing weapons are usually swords, greatswords, axes.
+#
+# Blunt weapons deal AoE damage to targets all around the initial enemy, just like the vanilla Sweeping Edge.
+# Blunt weapons usually correspond to hammers, greatstaffs.
+#
+# All of the previous are default MMOItems behaviours, however you can redefine them as much as you want.
+# You can create new item types, new weapon types, weapon effects, etc... to make your setup truly unique.
+#
+##############################################################################################################################
+
+# On-hit attack effect for BLUNT weapons
+blunt_attack_effect:
+  public: true
+  conditions:
+    - 'cooldown{path=mmoitems_blunt}'
+  mechanics:
+    - 'apply_cooldown{path=mmoitems_blunt;amount=3}'
+    - 'set_integer{variable=initial_target_id;value="<target.id>"}'
+    - 'particle{particle=EXPLOSION_LARGE}'
+    - 'sound{sound=ENTITY_PLAYER_ATTACK_CRIT;pitch=.5}'
+    - 'set_double{variable=damage_ratio;value="<stat.blunt_rating> / 100"}'
+    - 'script{name=propagate_damage;target={type=nearby_entities;radius="<stat.blunt_power>"}}'
+
+# On-hit attack effect for SLASHING weapons
+slashing_attack_effect:
+  public: true
+  conditions:
+    - 'cooldown{path=mmoitems_slashing}'
+  mechanics:
+    - 'apply_cooldown{path=mmoitems_slashing;amount=3}'
+    - 'set_integer{variable=initial_target_id;value="<target.id>"}'
+    - 'set_double{variable=damage_ratio;value=.4}'
+    - 'set_double{variable=angle;value=60}'
+    - 'cast{name=propagate_damage;target={type=cone;radius=6.5;angle=60}}'
+    - 'script{name=slash_attack_effect}'
+
+# On-hit attack effect for PIERCING weapons
+piercing_attack_effect:
+  public: true
+  conditions:
+    - 'cooldown{path=mmoitems_piercing}'
+  mechanics:
+    - 'apply_cooldown{path=mmoitems_piercing;amount=3}'
+    - 'set_integer{variable=initial_target_id;value="<target.id>"}'
+    - 'set_double{variable=damage_ratio;value=.6}'
+    - 'set_double{variable=angle;value=30}'
+    - 'cast{name=propagate_damage;target={type=cone;radius=6.5;angle=30}}'
+    - 'script{name=slash_attack_effect}'
+
+propagate_damage:
+  conditions:
+    - 'can_target{}'
+    - 'boolean{formula="<target.id> != <initial_target_id>"}'
+  mechanics:
+    - 'damage{amount="<attack.damage> * <damage_ratio>";damage_type="PHYSICAL,WEAPON"}'
+
+# Used for both slashing and piercing
+slash_attack_effect:
+  mechanics:
+    - 'copy_vector{variable=src;value=caster.location}'
+    - 'set_double{variable=p;value="<caster.eye_direction.pitch> * -pi / 180"}'
+    - 'add_vector{variable=src;y=1}'
+    - 'script{name=sae1;counter=c2;iterations="20"}'
+
+sae1:
+  mechanics:
+    - 'set_int{variable=c1_max;value="<c2> * <angle> / 60.0"}'
+    - 'script{name=sae2;counter=c1;iterations="<c1_max>"}'
+
+sae2:
+  mechanics:
+    - 'set_double{variable=a;value="pi / 180.0 * (90 + <caster.eye_direction.yaw> + <angle> * (-0.5 + (<c1> - 0.5) / <c1_max>))"}'
+    - 'set_double{variable=d;value=".4 + <c2> / 3"}'
+    - 'copy_vector{variable=inter;value=src}'
+    - 'add_vector{variable=inter;x="cos(<p>) * cos(<a>) * <d>";y="sin(<p>) * <d>";z="cos(<p>) *sin(<a>) * <d>"}'
+    - 'particle{particle=CRIT;target={type=variable;name=inter}}'
+
+##############################################################################################################################
+#
+# Staff Attacks
+#
+# You can create new scripts there and use the 'Left Click Effect' item option to bind
+# a new attack effect to your MMOItems staff/wand item. These scripts are coded using
+# the MythicLib scripting language, but MythicMobs and Fabled are supported too.
+#
+# Then, this system can be extended to create fully custom item types with custom effects
+# on right/left clicks, on melee attacks and on right-click entity interactions.
+#
+# Check this wiki page for more info about skill creation: https://docs.phoenixdevt.fr/mythiclib/skills/custom/mythic.html
+# Check this wiki page for more info about item types:     https://docs.phoenixdevt.fr/mmoitems/features/types.html
+#
+##############################################################################################################################
+
+staff_deal_damage:
+  mechanics:
+    - 'damage{amount="<stat.attack_damage>";damage_type="WEAPON,MAGIC"}'
+
+# Default staff attack effect
+staff_default:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'sound{sound=ENTITY_FIREWORK_ROCKET_TWINKLE;volume=2;pitch=.5}'
+    - 'projectile{life_span=10;speed="<var.range> * 2";hit_entity=staff_default_hit;hit_block=none;tick=staff_default_tick}'
+
+staff_default_hit:
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+
+staff_default_tick:
+  mechanics:
+    - 'particle{particle=CRIT;x=.3;y=.3;z=.3;amount=2}'
+
+# Staff "mana" attack effect
+staff_mana:
+  public: true
+  mechanics:
+    - 'sound{sound=ENTITY_BLAZE_SHOOT;pitch=2}'
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'copy_vector{variable=dir;value=caster.eye_direction}'
+    - 'set_double{variable=rad;value=.5}'
+    - 'projectile{life_span=20;speed="<range> * 2";hit_entity=staff_mana_hit;hit_block=none;tick=staff_mana_tick}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+MANA_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_mana}'
+
+staff_mana_tick:
+  mechanics:
+    - 'script{name=staff_mana_tick_2;counter=c;iterations=6}'
+
+staff_mana_tick_2:
+  conditions:
+    - 'boolean{formula="<random.double> < .6"}'
+  mechanics:
+    - 'set_double{variable=a;value="<random.double> * 2 * pi"}'
+    - 'copy_vector{variable=curr;value=target_location}'
+    - 'set_vector{variable=diff;x="<rad> * cos(<a>)",y="<rad> * sin(<a>)";z=0}'
+    - 'orient_vector{variable=diff;axis=dir}'
+    - 'add_vector{variable=curr;added=diff}'
+    - 'particle{particle=REDSTONE;color={red=0;green=230;blue=255};target={type=variable;name=curr}}'
+
+staff_mana_hit:
+  mechanics:
+    - 'sound{sound=ENTITY_BLAZE_HURT;pitch=2}'
+    - 'sphere{radius=2;tick=staff_mana_hit_tick;points=500}'
+    - 'script{name=staff_deal_damage}'
+
+staff_mana_hit_tick:
+  mechanics:
+    - 'particle{particle=REDSTONE;color={red=0;green=230;blue=255}}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+LIGHTNING_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_lightning}'
+
+# Staff "lightning" attack effect
+staff_lightning:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'sound{sound=ENTITY_FIREWORK_ROCKET_BLAST;volume=2;pitch=1.5}'
+    - 'raytrace{tick=staff_lightning_tick;neutral=false;range="<range>";hit_entity=staff_lightning_hit;size=.2;step=.5}'
+
+staff_lightning_hit:
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+    - 'particle{particle=FIREWORKS_SPARK;speed=.1;amount=32}'
+
+staff_lightning_tick:
+  mechanics:
+    - 'particle{particle=FIREWORKS_SPARK;amount=1}'
+
+# Staff "X-ray" attack effect
+staff_xray:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'sound{sound=ENTITY_FIREWORK_ROCKET_BLAST;volume=2;pitch=1.5}'
+    - 'raytrace{tick=staff_xray_tick;neutral=false;range="<range>";hit_entity=staff_xray_hit;size=.2;step=.5}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+XRAY_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_xray}'
+
+staff_xray_tick:
+  mechanics:
+    - 'particle{particle=REDSTONE;color={red=255;green=0;blue=0}}'
+
+staff_xray_hit:
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+
+# Staff "Void" attack effect
+staff_void:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'sound{sound=ENTITY_BLAZE_SHOOT;volume=2;pitch=2}'
+    - 'shulker_bullet{life_span=50;hit_entity=staff_void_hit}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+VOID_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_void}'
+
+staff_void_hit:
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+    - 'helix{tick=staff_void_hit_tick}'
+
+staff_void_hit_tick:
+  mechanics:
+    - 'particle{particle=REDSTONE;color={red=90;green=40;blue=40}}'
+
+# Staff "Nether" attack effect
+staff_nether:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'sound{sound=ENTITY_BLAZE_SHOOT;volume=2;pitch=2}'
+    - 'projectile{life_span=20;speed="<var.range> * 2";hit_entity=staff_nether_hit;hit_block=none;tick=staff_nether_tick;size=.5}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+NETHER_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_nether}'
+
+staff_nether_hit:
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+    - 'sound{sound=ENTITY_BLAZE_HURT;volume=2;pitch=2}'
+    - 'particle{particle=FLAME;amount=12;speed=.1}'
+    - 'particle{particle=LAVA;amount=6}'
+
+staff_nether_tick:
+  mechanics:
+    - 'particle{particle=FLAME;x=.2;y=.2;z=.2}'
+    - 'particle{particle=SMOKE_NORMAL;x=.2;y=.2;z=.2}'
+
+# Staff "Sunfire" attack effect
+staff_sunfire:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'ray_trace{size=.4;range="<range>";size=0;hit_block=staff_sunfire_success_block;hit_entity=staff_sunfire_success_entity}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+SUNFIRE_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_sunfire}'
+
+staff_sunfire_success_block:
+  mechanics:
+    - 'copy_vector{variable=meteor_tgt;value=target_location}'
+    - 'script{name=staff_sunfire_success_2}'
+
+staff_sunfire_success_entity:
+  mechanics:
+    - 'copy_vector{variable=meteor_tgt;value="target.bb_center"}'
+    - 'script{name=staff_sunfire_success_2}'
+
+staff_sunfire_success_2:
+  mechanics:
+    - 'sound{sound=ENTITY_WITHER_SHOOT;volume=2;pitch=2}'
+    - 'set_double{variable=angle;value="<random.unif> * pi * 2"}'
+    - 'set_vector{variable=meteor_src;x="<meteor_tgt.x> + 4 * cos(<angle>)";y="<meteor_tgt.y> + 10";z="<meteor_tgt.z> + 4 * sin(<angle>)"}'
+    - 'copy_vector{variable=meteor_dir;value=meteor_tgt}'
+    - 'sub_vec{variable=meteor_dir;subtracted=meteor_src}'
+    - 'set_integer{variable=c;value=0}'
+    - 'draw_line{source={type=variable;name=meteor_src};target={type=variable;name=meteor_tgt};tick=staff_sunfire_tick;end=staff_sunfire_explode;step=.7}'
+
+staff_sunfire_explode:
+  mechanics:
+    - 'particle{particle=FLAME;speed=.12;amount=24}'
+    - 'particle{particle=SMOKE_NORMAL;speed=.12;amount=24}'
+    - 'particle{particle=EXPLOSION_LARGE}'
+    - 'sound{sound=ENTITY_FIREWORK_ROCKET_BLAST;volume=2;pitch=2}'
+    - 'script{name=staff_sunfire_hit;target={type=nearby_entities;radius=3}}'
+
+staff_sunfire_hit:
+  conditions:
+    - 'can_target{}'
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+
+staff_sunfire_tick:
+  mechanics:
+    - 'particle{particle=FLAME;x=.3;y=.3;z=.3;amount=4}'
+    - 'script{name=staff_sunfire_tick2}'
+    - 'incr{variable=c}'
+
+staff_sunfire_tick2:
+  conditions:
+    - 'boolean{formula="<c> % 4 == 0"}'
+  mechanics:
+    - 'sound{sound=BLOCK_FIRE_AMBIENT;volume=2;pitch=2}'
+
+# Staff "Thunder" attack effect
+staff_thunder:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 12)"}'
+    - 'ray_trace{size=.4;range="<range>";size=0;hit_block=staff_thunder_success_block;hit_entity=staff_thunder_success_entity}'
+
+# Backwards compatibility with MI <6.9
+# Can be removed if previous items are updated.
+THUNDER_SPIRIT:
+  public: true
+  mechanics:
+    - 'script{name=staff_thunder}'
+
+staff_thunder_success_block:
+  mechanics:
+    - 'copy_vector{variable=meteor_tgt;value=target_location}'
+    - 'script{name=staff_thunder_success_2}'
+
+staff_thunder_success_entity:
+  mechanics:
+    - 'copy_vector{variable=meteor_tgt;value="target.bb_center"}'
+    - 'script{name=staff_thunder_success_2}'
+
+staff_thunder_success_2:
+  mechanics:
+    - 'sound{sound=ENTITY_WITHER_SHOOT;volume=2;pitch=2}'
+    - 'set_double{variable=angle;value="<random.unif> * pi * 2"}'
+    - 'set_vector{variable=meteor_src;x="<meteor_tgt.x> + 4 * cos(<angle>)";y="<meteor_tgt.y> + 10";z="<meteor_tgt.z> + 4 * sin(<angle>)"}'
+    - 'copy_vector{variable=meteor_dir;value=meteor_tgt}'
+    - 'sub_vec{variable=meteor_dir;subtracted=meteor_src}'
+    - 'set_integer{variable=c;value=0}'
+    - 'draw_line{source={type=variable;name=meteor_src};target={type=variable;name=meteor_tgt};tick=staff_thunder_tick;end=staff_thunder_explode;step=.3;points_per_tick=4}'
+
+staff_thunder_explode:
+  mechanics:
+    - 'particle{particle=FIREWORKS_SPARK;speed=.12;amount=24}'
+    - 'sound{sound=ENTITY_FIREWORK_ROCKET_BLAST;volume=2;pitch=2}'
+    - 'script{name=staff_thunder_hit;target={type=nearby_entities;radius=3}}'
+
+staff_thunder_hit:
+  conditions:
+    - 'can_target{}'
+  mechanics:
+    - 'script{name=staff_deal_damage}'
+
+staff_thunder_tick:
+  mechanics:
+    - 'particle{particle=FIREWORKS_SPARK}'
+    - 'script{name=staff_thunder_tick2}'
+    - 'incr{variable=c}'
+
+staff_thunder_tick2:
+  conditions:
+    - 'boolean{formula="<c> % 2 == 0"}'
+  mechanics:
+    - 'sound{sound=BLOCK_NOTE_BLOCK_HAT;volume=2;pitch=2}'
+
+##############################################################################################################################
+#
+# Other Scripts for MMOItems
+#
+##############################################################################################################################
+
+# Whip attack effect
+whip_attack:
+  public: true
+  mechanics:
+    - 'set_double{variable=range;value="non_zero(<stat.range>, 8)"}'
+    - 'sound{sound=ENTITY_FIREWORK_ROCKET_BLAST;volume=2;pitch=1.5}'
+    - 'raytrace{tick=whip_attack_tick;neutral=false;range="<range>";hit_entity=whip_attack_hit;size=.2;step=.5}'
+
+whip_attack_tick:
+  mechanics:
+    - 'particle{particle=CRIT}'
+
+whip_attack_hit:
+  mechanics:
+    - 'damage{amount="<stat.attack_damage>";damage_type="WEAPON,PHYSICAL"}'
+
+staff_special_attack:
+  public: true
+  conditions:
+    - 'cooldown{path=mmoitems_staff_special}'
+  mechanics:
+    - 'apply_cooldown{path=mmoitems_staff_special;amount=10}'
+    - 'particle{particle=EXPLOSION_LARGE}'
+    - 'particle{particle=EXPLOSION_NORMAL;amount=16;speed=.1}'
+    - 'sound{sound=BLOCK_ANVIL_LAND;pitch=2}'
+    - 'copy_vector{variable=knockback;value=caster.eye_direction}'
+    - 'set_y{variable=knockback;y=0}'
+    - 'normalize_vector{variable=knockback}'
+    - 'multiply_vector{variable=knockback;coef=1.1}'
+    - 'set_y{variable=knockback;y=.4}'
+    - 'set_velocity{vector=knockback}'
+
+gauntlet_special_attack:
+  public: true
+  conditions:
+    - 'cooldown{path=mmoitems_gauntlet}'
+  mechanics:
+    - 'apply_cooldown{path=mmoitems_gauntlet;amount=10}'
+    - 'particle{particle=EXPLOSION_LARGE}'
+    - 'sound{sound=BLOCK_ANVIL_LAND;pitch=2}'
+    - 'remove_potion{effect=BLINDNESS}'
+    - 'potion{effect=BLINDNESS;duration=40;level=1}'
+    - 'copy_vector{variable=knockback;value=caster.eye_direction}'
+    - 'set_y{variable=knockback;y=0}'
+    - 'normalize_vector{variable=knockback}'
+    - 'multiply_vector{variable=knockback;coef=1.3}'
+    - 'set_y{variable=knockback;y=.5}'
+    - 'set_velocity{vector=knockback}'
+
+crossbow_attack:
+  public: true
+  conditions:
+    - 'ammo{item=ARROW;creative_infinite=true;item_ignore_tag=MMOITEMS_DISABLE_ARROW_CONSUMPTION}'
+  mechanics:
+    - 'take_ammo{item=ARROW;creative_infinite=true;item_ignore_tag=MMOITEMS_DISABLE_ARROW_CONSUMPTION}'
+    - 'play_sound{sound=ENTITY_ARROW_SHOOT;pitch=.5}'
+    - 'shoot_arrow{from_item=true;player_attack_damage=true;tick=crossbow_arrow_tick;velocity="non_zero(<stat.arrow_velocity>, 1) * 3";damage_types="WEAPON,PROJECTILE"}'
+
+crossbow_arrow_tick:
+  mechanics:
+    - 'particle{particle=CRIT;speed=.05}'

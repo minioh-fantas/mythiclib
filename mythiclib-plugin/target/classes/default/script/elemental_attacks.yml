@@ -1,0 +1,150 @@
+##############################################################################################################################
+#
+# MythicLib Elemental Scripts
+#
+# These scripts are used in MythicLib for elemental attacks and critical strikes.
+# By default, 
+#
+##############################################################################################################################
+
+#####################
+# Fire
+#####################
+fire_elemental_attack:
+  mechanics:
+    - particle{particle=FLAME,amount=8,speed=0.05}
+
+fire_critical_strike:
+  mechanics:
+    - multiply_damage{amount=2;element=fire} # multiply elemental damage by 2
+
+    - set_on_fire{ticks="<stat.fire_damage> * 2"}
+    - sound{sound=ENTITY_BLAZE_HURT}
+    - particle{particle=FLAME,amount=8,speed=0.05}
+    - particle{particle=LAVA,amount=14,speed=0}
+
+#####################
+# Ice
+#####################
+ice_elemental_attack:
+  mechanics:
+    - particle{particle=BLOCK_CRACK,amount=16,speed=0.07,block=ICE}
+
+ice_critical_strike:
+  mechanics:
+    - multiply_damage{amount=2;element=ice} # multiply elemental damage by 2
+
+    - particle{particle=BLOCK_CRACK,amount=16,speed=0.07,block=ICE}
+    - sound{sound=BLOCK_GLASS_BREAK,pitch=0}
+    - potion{effect=SLOW,duration="<attack.damage> * 1.5",level=5}
+    - helix{height=3,source={type=target;position=FEET},radius=1,tick=ice_crit_strike_subskill}
+
+ice_crit_strike_subskill:
+  mechanics:
+    - particle{particle=REDSTONE,color={red=186;green=242;blue=239}} # ice blue rgb, #baf2ef
+
+#####################
+# Wind
+#####################
+wind_elemental_attack:
+  mechanics:
+    - particle{particle=EXPLOSION_NORMAL,amount=8,speed=0.06}
+
+wind_critical_strike:
+  mechanics:
+    - multiply_damage{amount=2;element=wind} # multiply elemental damage by 2
+
+    - particle{particle=EXPLOSION_NORMAL,amount=8,speed=0.06}
+    - sound{sound=ENTITY_ENDER_DRAGON_GROWL,pitch=2}
+    - set_vector{x="<target.location.x> - <caster.location.x>",y="<target.location.y> - <caster.location.y>",z="<target.location.z> - <caster.location.z>",variable=knockback}
+    - normalize_vector{variable=knockback}
+    - multiply_vector{variable=knockback,coef=2}
+    - set_y{y=0.5,variable=knockback}
+    - set_velocity{vector=knockback}
+    - script{name=wind_crit_sub_skill,target={type=nearby_entities;radius=3;height=1}}
+
+wind_crit_sub_skill:
+  conditions: # Filters untargetable entities
+    cantarget:
+      type: can_target
+      interaction_type: OFFENSE_ACTION
+  mechanics:
+    - set_velocity{vector=knockback}
+    - entity_effect{effect=HURT}
+
+#####################
+# Earth
+#####################
+earth_elemental_attack:
+  mechanics:
+    - particle{particle=BLOCK_CRACK,amount=24,speed=0.05,block=DIRT}
+
+earth_critical_strike:
+  mechanics:
+    - multiply_damage{amount=2;element=earth} # multiply elemental damage by 2
+
+    - particle{particle=BLOCK_CRACK,amount=64,target={type=target;position=feet},x=1,z=1,speed=0.05,block=DIRT}
+    - sound{sound=BLOCK_GRASS_BREAK,pitch=0}
+    - set_vector{x=0,y=1,z=0,variable=knockup}
+    - set_velocity{vector=knockup}
+    - script{name=earth_crit_subskill,target={type=nearby_entities;radius=3;height=1}}
+
+earth_crit_subskill:
+  conditions: # Filters untargetable entities
+    cantarget:
+      type: can_target
+      interaction_type: OFFENSE_ACTION
+  mechanics:
+    - set_velocity{vector=knockup}
+
+#####################
+# Thunder
+#####################
+thunder_elemental_attack:
+  mechanics:
+    - particle{particle=FIREWORKS_SPARK,amount=8,speed=0.05}
+
+
+thunder_critical_strike:
+  mechanics:
+    - multiply_damage{amount=2;element=thunder} # multiply elemental damage by 2
+
+    - sound{sound=ENTITY_FIREWORK_ROCKET_LARGE_BLAST,pitch=0}
+    - particle{particle=FIREWORKS_SPARK,target={type=circle;radius=1;amount=32}}
+    - script{name=thunder_crit_subskill_1,target={type=nearby_entities;radius=3}}
+
+thunder_crit_subskill_1:
+  conditions: # Filters untargetable entities
+    cantarget:
+      type: can_target
+      interaction_type: OFFENSE_ACTION
+  mechanics:
+    - damage{amount="<attack.damage> * .2"}
+
+#####################
+# Water
+#####################
+water_elemental_attack:
+  mechanics:
+    - particle{particle=BLOCK_CRACK,amount=32,speed=0.07,block=WATER}
+
+water_critical_strike:
+  mechanics:
+    - multiply_damage{amount=2;element=water} # multiply elemental damage by 2
+
+    - set_double{variable=angle,value=0}
+    - helix{height=3,source={type=target;position=feet},radius="sin(<angle>)",tick=water_crit_subskill_2}
+    - script{name=water_crit_subskill_1,target={type=nearby_entities;radius=3}}
+
+water_crit_subskill_2:
+  mechanics:
+    - set_double{variable=angle,value="<angle> + 0.02618"} # ~1.5 degrees in radians
+    - particle{particle=WATER_DROP}
+
+water_crit_subskill_1:
+  conditions: # Filters untargetable entities
+    cantarget:
+      type: can_target
+      interaction_type: OFFENSE_ACTION
+  mechanics:
+    - potion{effect=SLOW,duration="<attack.damage> * 2",level=1}

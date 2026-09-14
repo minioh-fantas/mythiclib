@@ -1,0 +1,98 @@
+
+# How much decimal places the different stats
+# display in the GUIs (e.g in player stats).
+# https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html
+#
+# Default is "0.#" when none is specified, this cannot be edited.
+decimal-format:
+  MOVEMENT_SPEED: '0.##'
+  ARMOR_TOUGHNESS: '0.###'
+  KNOCKBACK_RESISTANCE: '0.##'
+  HEALTH_REGENERATION: '0.##'
+  MANA_REGENERATION: '0.##'
+  STELLIUM_REGENERATION: '0.##'
+  # Add as many as you want...
+
+# Minimum and maximum values for the stat values. This means using '0 = 100'
+# for CRITICAL_STRIKE_CHANCE means that you cannot have less than 0% and
+# cannot have more than 100% critical strike chance. This is an important
+# tool for server balance. You can balance stats like block rating, defense,
+# max health, damage reduction etc.
+#
+# * General format is '{MINIMUM VALUE} = {MAXIMUM VALUE}'
+# * Using '= {MAXIMUM VALUE}' will disable the lower bound.
+# * Using '{MINIMUM VALUE} =' will disable the upper bound.
+# * By default there are no upper or lower bounds for most stats. Some of
+#   the following are just examples.
+# * !! The minimum value IS NOT A BASE STAT VALUE. It just means that you
+#   cannot have less than X in that stat (it just clamps your stat value).
+#
+# Default Minecraft stats like Health, Armor, Attack damage, etc.
+# are PARTIALLY supported. Only the portion of these attributes
+# granted by MMO plugins will be affected by these lower/upper bounds.
+min-max-values:
+
+  # Crits
+  CRITICAL_STRIKE_CHANCE: '0 = 80'
+  CRITICAL_STRIKE_POWER: '0 = 500'
+  SKILL_CRITICAL_STRIKE_CHANCE: '0 = 80'
+  SKILL_CRITICAL_STRIKE_POWER: '0 = 500'
+
+  # Mitigation
+  BLOCK_RATING: '0 = 80'
+  DODGE_RATING: '0 = 80'
+  PARRY_RATING: '0 = 80'
+  BLOCK_POWER: '25 = 75'
+
+  BLOCK_COOLDOWN_REDUCTION: '0 = 80'
+  DODGE_COOLDOWN_REDUCTION: '0 = 80'
+  PARRY_COOLDOWN_REDUCTION: '0 = 80'
+
+  # Other
+  MOVEMENT_SPEED: '0 = .3'
+  DEFENSE: '0 = 10000'
+  SPEED_MALUS_REDUCTION: '0=80'
+
+  # Add as many as you want...
+
+# This is where you can edit the base value of any stat. This has the
+# exact same effect as a PERMANENT stat buff. If a MMOCore class gives
+# you 20 base HP, and if the base value in this config section is set
+# to 10, it will result in 20 + 10 = 30 HP. It also works like that
+# with MMOItems items as well.
+#
+# This is also an important tool for balancing your player stats.
+# The default base stat for any stat is 0.
+#
+# !! For vanilla attribute-based stats (Max Health, Movement Speed, Armor...)
+# !! this base stat value adds up to the player's vanilla base attribute value
+# !! (20 for Max Health, 0.1 for Movement Speed, 0 for Armor...)
+base-stat-value:
+
+  # Crits. By default, crits deal 2x damage
+  CRITICAL_STRIKE_POWER: 200
+  SKILL_CRITICAL_STRIKE_POWER: 200
+
+  # Mitigation
+  BLOCK_POWER: 25
+
+  # MMOItems weapon stats
+  BLUNT_POWER: 2
+  BLUNT_RATING: 33
+
+  # Add as many as you want...
+
+proxies:
+  MAX_HEALTH_PERCENT:
+    # One unit in MAX_HEALTH_PERCENT increases
+    # MAX_HEALTH by 1%, linearly
+    MAX_HEALTH:
+      coef: 1
+      type: PERCENT
+
+  MAX_HEALTH_SCALAR:
+    # One unit in MAX_HEALTH_SCALAR increases
+    # MAX_HEALTH by 1%, geometrically
+    MAX_HEALTH:
+      coef: 1
+      type: SCALAR

@@ -1,0 +1,28 @@
+
+######################################
+#
+# Custom Triggers
+#
+# It is possible to implement custom skill triggers inside MythicLib
+# though it is a complex functionality. Once registered in this file,
+# you need to manually call this trigger using one skill mechanic.
+#
+# You can then call custom triggers inside MMOLib scripts
+# for additional skill/script customizability.
+#
+# More information on this wiki page:
+# https://docs.phoenixdevt.fr/mythiclib/skills/triggers.html#custom-triggers
+#
+######################################
+
+
+# Triggered on weapon crits
+# Corresponding on-hit effect: on_hit_effects/weapon_crits
+# Call in script:              script/on_hit_effects.yml>weapon_crit_script
+WEAPON_CRIT:
+
+  # When set to false, send messages to the player
+  # when skills cannot cast due to them being on cooldown,
+  # missing mana/stamina....
+  silent: true
+

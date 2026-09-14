@@ -1,0 +1,120 @@
+
+damage_indicators:
+
+  # Enable/disable damage indicators alltogether
+  enabled: true
+
+  # Under 0.1 damage, no indicator will show
+  min_damage: 0.1
+
+  # Use format: 'ᜌ{icon} &f{value}ᜌ' along with the resource pack
+  # provided in the wiki in order to remove the gray background
+  format: '{icon} &f{value}'
+  decimal_format: '0.#'
+
+  custom_font:
+    enabled: false
+    normal:
+      '0': 'ᜀ'
+      '1': 'ᜁ'
+      '2': 'ᜂ'
+      '3': 'ᜃ'
+      '4': 'ᜄ'
+      '5': 'ᜅ'
+      '6': 'ᜆ'
+      '7': 'ᜇ'
+      '8': 'ᜈ'
+      '9': 'ᜉ'
+      'dot': 'ᜊ'
+      'inter': 'ᜍ'
+    crit:
+      '0': 'ᜐ'
+      '1': 'ᜑ'
+      '2': 'ᜒ'
+      '3': 'ᜓ'
+      '4': '᜔'
+      '5': '᜕'
+      '6': '᜖'
+      '7': '᜗'
+      '8': '᜘'
+      '9': '᜙'
+      'dot': 'ᜋ'
+      'inter': 'ᜍ'
+
+  # single => one indicator only
+  # packet => one indicator per damage packet (!!)
+  # type   => one indicator per damage type
+  group_by: packet
+  damage_type_splits: [weapon, skill]
+  damage_type_icon_join: '' # Join by space character
+
+  icon:
+    weapon:
+      normal: '&c🗡'
+      crit: '&c&l🗡'
+    skill:
+      normal: '&6☄'
+      crit: '&6&l☄'
+    projectile:
+      normal: '&a➶'
+      crit: '&a&l➶'
+    physical:
+      normal: '&4✘'
+      crit: '&4&l✘'
+    magic:
+      normal: '&9✩'
+      crit: '&9&l✩'
+
+  split_holograms: true
+  holograms_join: ' ' # Split by space character
+
+  move: true
+  radial_velocity: 1
+  gravity: 1
+  initial_upward_velocity: 1
+  y_offset: 0.1
+  entity_height_percent: 0.75
+  r_offset: 0.5
+  entity_width_percent: 0.75
+  tick_period: 3
+  lifespan: 20
+
+regen_indicators:
+
+  # Enable/disable damage indicators alltogether
+  enabled: false
+
+  # Under 0.1 health regen, no indicator will show
+  min_regen: 0.1
+
+  # Use format: 'ᜌ{icon} &f{value}ᜌ' along with the resource pack
+  # provided in the wiki in order to remove the gray background
+  format: '&a+{value}'
+  decimal_format: '0.#'
+
+  custom_font:
+    enabled: false
+    '0': 'ᜀ'
+    '1': 'ᜁ'
+    '2': 'ᜂ'
+    '3': 'ᜃ'
+    '4': 'ᜄ'
+    '5': 'ᜅ'
+    '6': 'ᜆ'
+    '7': 'ᜇ'
+    '8': 'ᜈ'
+    '9': 'ᜉ'
+    'dot': 'ᜊ'
+    'inter': 'ᜍ'
+
+  move: true
+  radial_velocity: 1
+  gravity: 1
+  initial_upward_velocity: 1
+  y_offset: 0.1
+  entity_height_percent: 0.75
+  r_offset: 0.5
+  entity_radius_percent: 0.75
+  tick_period: 3
+  lifespan: 20
+

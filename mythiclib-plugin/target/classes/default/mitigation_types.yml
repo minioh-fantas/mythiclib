@@ -1,0 +1,65 @@
+
+
+######################################
+# Blocking
+#
+# Blocking an attack reduces incoming damage by a certain percentage
+######################################
+block:
+
+  # For backwards compatibility only.
+  # If none of your plugins use the old MythicLib mitigation
+  # events, you can safely remove/comment out this option.
+  legacy: block
+
+  # Formula for cooldown between two consecutive blocks (in seconds)
+  # To disable cooldown, delete this line, or comment it out
+  # Note that, by default, cooldown reduction is capped at 80% (see stats.yml)
+  cooldown: '3 * (1 - <stat.block_cooldown_reduction> / 100)'
+
+  # Chance to successfully block an attack
+  # This formula should return a value between 0 and 1 (0 being 0% chance, 1 being 100% chance)
+  # Note that, by default, block rating is capped at 80% (see stats.yml)
+  roll: '<stat.block_rating> / 100'
+
+  # Skill ran on damage
+  on_damage: 'mythiclib:mitigation_on_block'
+
+
+######################################
+# Dodging
+#
+# Dodging an attack completely negates all incoming damage
+######################################
+dodge:
+
+  # For backwards compatibility only.
+  # If none of your plugins use the old MythicLib mitigation
+  # events, you can safely remove/comment out this option.
+  legacy: dodge
+
+  cooldown: '3 * (1 - <stat.dodge_cooldown_reduction> / 100)' # Cooldown between two consecutive dodges (in seconds)
+  roll: '<stat.dodge_rating> / 100' # Chance to successfully dodge an attack
+  on_damage: 'mythiclib:mitigation_on_dodge' # Skill ran on damage
+
+
+######################################
+# Parrying
+#
+# Parrying an attack completely negates all incoming damage and
+# reflects a portion of the damage back to the attacker
+######################################
+parry:
+
+  # For backwards compatibility only.
+  # If none of your plugins use the old MythicLib mitigation
+  # events, you can safely remove/comment out this option.
+  legacy: parry
+
+  cooldown: '3 * (1 - <stat.parry_cooldown_reduction> / 100)' # Cooldown between two consecutive parries (in seconds)
+  roll: '<stat.parry_rating> / 100' # Chance to successfully parry an attack
+  on_damage: 'mythiclib:mitigation_on_parry' # Skill ran on damage
+
+# You can edit existing mitigation types, add your own, copy and duplicate existing ones, etc.
+# There are no limits on the number of mitigation types you can have.
+# MythicLib provides 3 built-in mitigation types: block, parry and dodge as these are the most common ones in RPG games
